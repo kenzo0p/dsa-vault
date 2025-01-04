@@ -131,6 +131,6 @@ public class Basics {
 
 
         // 5
-        // int $ = 20; //not it will not give an error
+        // int $ = 20; //not it will not give an error "_ also valid"
     }
 }
