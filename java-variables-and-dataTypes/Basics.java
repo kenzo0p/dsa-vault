@@ -132,5 +132,20 @@ public class Basics {
 
         // 5
         // int $ = 20; //not it will not give an error "_ also valid"
+
+        // Live session
+        // System.out.println("Enter the string : ");
+        // String str = sc.next();
+        // System.out.println(str);
+
+        // string concatination
+        // System.out.println("Hii " + "I " + "am" + " om");
+        // int => -2 * 10^9 to 2 * 10^9
+        // long => -10^18 to 10^18
+        // float 0. 5 to 6 decimal degits
+        // doble 0.15 to 16 decimal degits
+        long a =10;
+        float b =20.5f;
+        System.out.println(a + b);
     }
 }
