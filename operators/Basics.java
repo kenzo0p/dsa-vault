@@ -1,5 +1,5 @@
 package operators;
-
+import java.util.Scanner;
 public class Basics {
     public static void main(String[] args) {
         // arithmetic opearators
@@ -32,7 +32,16 @@ public class Basics {
         // 4 = 278
         // 5 = 20,20
 
-
-        
+        // livehhi
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the age of user : ");
+        int age = sc.nextInt();
+        if(age >= 18 & age < 60 ) {
+            System.out.println("you are an adult");
+        }else if (age >= 60) {
+            System.out.println("Senior citizen");
+        }else {
+            System.out.println("You are child");
+        }
     }
 }
