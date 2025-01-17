@@ -89,65 +89,89 @@ public class Main {
         // int prime = scn.nextInt();
         // boolean isPrime = true;
         // if (prime == 2) {
-        //     System.out.println("The number is prime");
+        // System.out.println("The number is prime");
 
         // } else {
-        //     for (int i = 2; i <= Math.sqrt(prime); i++) { //prime -1
-        //         if (prime % i == 0) {
-        //             isPrime = false;
-        //         }
-        //     }
-        //     if (isPrime == true) {
+        // for (int i = 2; i <= Math.sqrt(prime); i++) { //prime -1
+        // if (prime % i == 0) {
+        // isPrime = false;
+        // }
+        // }
+        // if (isPrime == true) {
 
-        //         System.out.println("Number is prime");
-        //     } else {
-        //         System.out.println("Number is not prime number");
-        //     }
+        // System.out.println("Number is prime");
+        // } else {
+        // System.out.println("Number is not prime number");
+        // }
         // }
 
         // question 1 = 2
 
-
         // question 2
 
-        
-        int choice;
-        int number;
-        int evenSum = 0;
-        int oddSum = 0;
-        do {
-            System.out.print("Enter the number : ");
-            number = scn.nextInt();
-            if(number % 2 == 0){
-                evenSum = evenSum+number;
-            }else {
-                oddSum = oddSum +number;
-            }
-            System.out.print("Enter 1 if yo want to continue or enter any number to exit : ");
-            choice = scn.nextInt();
-        } while (choice==1);
-        System.out.println("The addition of even numbers : " + evenSum);
-        System.out.print("The addition of odd numbers : " + oddSum);
-
-
-        // question 3 
-        // int number = scn.nextInt();
-        // int fact = 1;
-        // for(int i  = 1;i<=number;i++){
-        //     fact = fact * i;
+        // int choice;
+        // int number;
+        // int evenSum = 0;
+        // int oddSum = 0;
+        // do {
+        // System.out.print("Enter the number : ");
+        // number = scn.nextInt();
+        // if(number % 2 == 0){
+        // evenSum = evenSum+number;
+        // }else {
+        // oddSum = oddSum +number;
         // }
-        // System.out.println("The factorial of " +number + " is " + fact);
+        // System.out.print("Enter 1 if you want to continue or enter any number to exit
+        // : ");
+        // choice = scn.nextInt();
+        // } while (choice==1);
+        // System.out.println("The addition of even numbers : " + evenSum);
+        // System.out.print("The addition of odd numbers : " + oddSum);
 
+        // another solution
+        // System.out.println("Enter the number to get the input that much time : ");
+        // int N = scn.nextInt();
+        // int EVEN = 0;
+        // int ODD = 0;
+        // while (N > 0) {
+        // System.out.println("Enter the numbers : ");
+        // int curr = scn.nextInt();
+        // if(curr % 2 == 0) {
+        // EVEN = EVEN + curr;
+        // }else {
+        // ODD = ODD + curr;
+        // }
+        // N--;
+        // }
+        // System.out.println( "EVEN : " +EVEN);
+        // System.out.println( "ODD : " +ODD);
+
+        // question 3
+        System.out.println("Enter the number : ");
+        int number = scn.nextInt();
+        int fact = 1;// for zero condition will false
+        for (int i = 1; i <= number; i++) {
+            fact = fact * i;
+        }
+        System.out.println("The factorial of " + number + " is " + fact);
 
         // question 4
         // int table = scn.nextInt();
         // for (int i = 1;i<=10 ;i++){
-        //     System.out.println(table + "*" + i + "=" +table*i);
-        // }
+        // System.out.println(table + "*" + i + "=" +table*i);
 
+        // }
 
         // question 5
         // nothing wrong in this code
+
+        // live sessionin
+        // int a = 0;
+        // while(a<5){
+        // System.out.println("hii");
+        // a++;
+        // }
+
     }
 }
 
