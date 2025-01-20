@@ -126,57 +126,61 @@ public class Main {
             System.out.println();
         }
     }
-    public static void diamondPattern(int n){
-        for(int i = 1 ; i<=n;i++){
+
+    public static void diamondPattern(int n) {
+        for (int i = 1; i <= n; i++) {
             // for spaces
-            for(int space = 1 ; space<=n-i; space++){
+            for (int space = 1; space <= n - i; space++) {
                 System.out.print(" ");
             }
             // for stars
-            for(int star = 1 ; star<=2*i-1;star++){
+            for (int star = 1; star <= 2 * i - 1; star++) {
                 System.out.print("*");
             }
             System.out.println();
         }
-        for(int i = n ; i>=1;i--){
+        for (int i = n; i >= 1; i--) {
             // for spaces
-            for(int space = 1 ; space<=n-i; space++){
+            for (int space = 1; space <= n - i; space++) {
                 System.out.print(" ");
             }
             // for stars
-            for(int star = 1 ; star<=2*i-1;star++){
+            for (int star = 1; star <= 2 * i - 1; star++) {
                 System.out.print("*");
             }
             System.out.println();
         }
     }
-    public static void numberPyramid(int n){
-        for(int i =1;i<=n;i++){
-            for(int space = 1;space<=n-i;space++){
+
+    public static void numberPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int space = 1; space <= n - i; space++) {
                 System.out.print(" ");
             }
-            for(int j =1 ;j<=i;j++){
+            for (int j = 1; j <= i; j++) {
                 System.out.print(j);
             }
-            for(int j = i-1;j>=1;j--){
+            for (int j = i - 1; j >= 1; j--) {
                 System.out.print(j);
             }
             System.out.println();
         }
     }
-    public static void numberPyramidTwo(int n){
+
+    public static void numberPyramidTwo(int n) {
         int num = 1;
-        for(int i = 1;i<=n;i++){
-            for(int space = 1;space<=n-i;space++){
+        for (int i = 1; i <= n; i++) {
+            for (int space = 1; space <= n - i; space++) {
                 System.out.print("\t");
             }
-            for(int j = 1;j<=i;j++){
-                System.out.print(num+"\t\t");
+            for (int j = 1; j <= i; j++) {
+                System.out.print(num + "\t\t");
                 num++;
             }
             System.out.println();
         }
     }
+
     public static void main(String[] args) {
         // hollowRectangle(5,7);
         // invertedAndRotatedHalfPyramid(5);
@@ -189,6 +193,6 @@ public class Main {
         // diamondPattern(10);
         // numberPyramid(5);
         // numberPyramidTwo(8);
-        
+
     }
 }
