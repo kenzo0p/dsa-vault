@@ -73,35 +73,78 @@ public class Questions {
         System.out.println("Total: " + total);
     }
 
-    public static void subArrays(int numbers[]) {
-        int ts = 0; // (n(n+1))/2
-        int sum = 0;
-        int startSum = 0;
-        int maxSum = 0;
+    // public static void subArrays(int numbers[]) {
+    //     int ts = 0; // (n(n+1))/2
+    //     int sum = 0;
+    //     int startSum = 0;
+    //     int maxSum = 0;
+    //     for (int i = 0; i < numbers.length; i++) {
+    //         int start = i;
+    //         for (int j = i; j < numbers.length; j++) {
+    //             int end = j;
+    //             for (int k = start; k <= end; k++) {
+    //                 System.out.print(numbers[k] + " ");
+    //                 sum = sum + numbers[k];
+
+    //                 startSum = sum;
+    //                 if (startSum > maxSum) {
+    //                     maxSum = maxSum + numbers[k];
+    //                 }
+    //             }
+    //             ts++;
+    //             System.out.println();
+    //         }
+    //         System.out.println("The Sum is: " + sum);
+    //         sum = 0;
+
+    //         System.out.println();
+    //     }
+    //     System.out.println("The sum of min sum is: " + startSum);
+    //     System.out.println("The sum of max sum is: " + maxSum);
+    //     System.out.println("Total subarrays: " + ts);
+    // }
+    // public static void subArraysSum(int numbers[]) {//o(n^3)
+    //     // int ts = 0; // (n(n+1))/2
+    //     int currSum = 0;
+    //     int maxSum = Integer.MIN_VALUE;
+    //     for (int i = 0; i < numbers.length; i++) {
+    //         int start = i;
+    //         for (int j = i; j < numbers.length; j++) {
+    //             int end = j;
+                    //currSum = 0;
+    //             for (int k = start; k <= end; k++) {
+    //                currSum +=numbers[k];
+    //             }
+    //             System.out.println(currSum);
+    //             if(maxSum < currSum) {
+    //                 maxSum = currSum;
+    //             }
+    //         }
+    //     }
+    //     System.out.println("Max sum is : "+ maxSum);
+    // }
+
+    // prefix sum
+    public static void subArraysSum(int numbers[]) {//o(n^3)
+        // int ts = 0; // (n(n+1))/2
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        int prefix[] = new int[numbers.length];
+        prefix[0] = numbers[0];
+        for(int i = 1;i<prefix.length;i++){
+            prefix[i] = prefix[i-1] + numbers[i];
+        }
         for (int i = 0; i < numbers.length; i++) {
             int start = i;
             for (int j = i; j < numbers.length; j++) {
                 int end = j;
-                for (int k = start; k <= end; k++) {
-                    System.out.print(numbers[k] + " ");
-                    sum = sum + numbers[k];
-
-                    startSum = sum;
-                    if (startSum > maxSum) {
-                        maxSum = maxSum + numbers[k];
-                    }
+                currSum = start == 0 ? prefix[end] :  prefix[end] - prefix[start-1];
+                if(maxSum < currSum) {
+                    maxSum = currSum;
                 }
-                ts++;
-                System.out.println();
             }
-            System.out.println("The Sum is: " + sum);
-            sum = 0;
-
-            System.out.println();
         }
-        System.out.println("The sum of min sum is: " + startSum);
-        System.out.println("The sum of max sum is: " + maxSum);
-        System.out.println("Total subarrays: " + ts);
+        System.out.println("Max sum is : "+ maxSum);
     }
 
     public static void main(String[] args) {
@@ -117,7 +160,7 @@ public class Questions {
         // System.out.print(arr[i]+ " ");
         // }
         // pairsArray(arr);
-        subArrays(arr);
+        subArraysSum(arr);
 
     }
 }
