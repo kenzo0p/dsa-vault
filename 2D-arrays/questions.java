@@ -88,7 +88,8 @@ public class questions {
                 { 13, 14, 15, 16 } };
         int key = 14;
         System.out.println(stairCaseSearch(matrix, key));
-        int sum = diagonalSum(matrix);
-        System.out.println(sum);
+        // int sum = diagonalSum(matrix);
+        // System.out.println(sum);
+        // System.out.println(matrix.length);
     }
 }
