@@ -2,3 +2,6 @@ multiple inheritance -> in java not possoble with classess but can do with inter
 
 in cpp we can do it by using classess
 
+in java we can not make classess private and protected.........
+
+Parent p = new Child(); we can do like that viceversa is not true aur we cant wirte viceversa
