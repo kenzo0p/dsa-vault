@@ -25,7 +25,7 @@ class Calculator {
     }
 }
 
-// method overriding runtime polymorphism
+// method overriding runtime polymorphism  -> comes under inheritance
 
 class Animal {
     void eat() {

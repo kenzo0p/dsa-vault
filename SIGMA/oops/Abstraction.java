@@ -1,24 +1,24 @@
 public class Abstraction {
     public static void main(String[] args) {
-            // Horse h  = new Horse();
-            // h.eat();
-            // h.walk();
-            // h.changeColor();
+        // Horse h = new Horse();
+        // h.eat();
+        // h.walk();
+        // h.changeColor();
 
-            Mustang m = new Mustang();
-            
+        Mustang m = new Mustang();
     }
 }
 
 // hiding all unnessaesary details and showing only the important parts to the
 // user
-
-abstract class Animal {
+abstract class Animal {            
     String color;
-    Animal(){
+
+    Animal() {
         color = "Brown";
         System.out.println("Animal constructor called");
     }
+
     void eat() {
         System.out.println("Animal eats");
     }
@@ -27,32 +27,36 @@ abstract class Animal {
 }
 
 class Horse extends Animal {
-    Horse(){
+    Horse() {
         System.out.println("Horse constructor called");
     }
-    void changeColor(){
+
+    void changeColor() {
         color = "dark brown";
-        
+
     }
+
     void walk() {
         System.out.println("Horse walks on four legs");
     }
 }
 
 class Chicken extends Animal {
-    Chicken(){
+    Chicken() {
         System.out.println("Chicken constructor called");
     }
-    void changeColor(){
+
+    void changeColor() {
         color = "yellow";
     }
+
     void walk() {
         System.out.println("Walks on two legs");
     }
 }
 
 class Mustang extends Horse {
-    Mustang(){
+    Mustang() {
         System.out.println("Mustang constructor called");
     }
 }

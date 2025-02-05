@@ -1,4 +1,4 @@
-package loops;
+package SIGMA.loops;
 
 import java.util.Scanner;
 import java.util.*;
