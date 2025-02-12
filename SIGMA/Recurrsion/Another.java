@@ -53,7 +53,7 @@ public class Another {
     public static void binaryString(int n, int lastPlace, String str) {
 
         // base case {
-        if(n==0){
+        if (n == 0) {
             System.out.println(str);
             return;
         }
@@ -65,9 +65,9 @@ public class Another {
         // } else {
         // binaryString(n - 1, 0, str+"0");
         // }
-        binaryString(n-1, 0, str+"0");
-        if(lastPlace == 0){
-            binaryString(n-1, 1, str+"1");
+        binaryString(n - 1, 0, str + "0");
+        if (lastPlace == 0) {
+            binaryString(n - 1, 1, str + "1");
         }
     }
 
