@@ -21,6 +21,7 @@ public class Main {
         int i = si;// iterator for left part
         int j = mid + 1; // iterator for left part
         int k = 0;// iterator for temp array
+        // compare the elem and merge into temp array
         while (i <= mid && j <= ei) {
             if (arr[i] < arr[j]) {
                 temp[k] = arr[i];

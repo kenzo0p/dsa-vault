@@ -9,7 +9,6 @@ public class QuickSort {
         quickSort(arr, pidx + 1, ei);// left part
 
     }
-
     public static int partition(int arr[], int si, int ei) {
         int pivot = arr[ei];
         int i = si - 1;// to make space or to make place for elem that are smaller than pivot
