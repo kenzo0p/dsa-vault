@@ -15,7 +15,6 @@ public class RateInMaze {
 
         if(row == maze.length-1 && col == maze.length-1){
             System.out.println(path);
-            
             return;
         }
         maze[row][col] = -1;
