@@ -1,4 +1,3 @@
-import java.util.Collections;
 
 public class RotateArrayByKPlaces {
     public static void rotateByOne(int arr[]) {
@@ -29,10 +28,23 @@ public class RotateArrayByKPlaces {
         }
 
     }
+
+    public static void reverse(int[] arr, int start, int end) {
+        while (start < end) {//it should be strickly less than
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
     public static void rotateByKPlacesOptimal(int arr[], int k) {
         int n = arr.length;
-
-
+        k = k%n;//if k is greater than like if k== 7  then 7%n = this value will give same ans as but if its greater than it will give error that is indexoutofbound
+        reverse(arr, 0, n - 1);
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n - 1);
     }
 
     public static void main(String[] args) {

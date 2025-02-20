@@ -9,6 +9,8 @@ public class Main {
         System.out.println();
     }
 
+    
+
     // !intuit
     public static boolean palindrome(String str) {
         int n = str.length();

@@ -7,7 +7,7 @@ public class GridWays {
         }
         int w1 = gridWays(i+1, j, n, m);
         int w2 = gridWays(i, j+1, n, m);
-        return w2+w2;
+        return w1+w2;
     }
     public static void main(String[]args){
         int n = 3 ,m=3;
