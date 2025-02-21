@@ -41,6 +41,31 @@ public class LinkedList {
         tail = newNode;
     }
 
+    // without tail
+    public void addLastl(int data) {
+        Node newNode = new Node(data);
+
+        // If the Linked List is empty, make the new 
+        // node as the head and return
+        // if (head == null) {
+        //     return newNode;
+        // }
+
+        // Store the head reference in a temporary variable
+        Node last = head;
+
+        // Traverse till the last node
+        while (last.next != null) {
+            last = last.next;
+        }
+
+        // Change the next pointer of the 
+        // last node to point to the new node
+        last.next = newNode;
+
+    }
+    
+
     public void print() { // o(n)
         if (head == null) {
             System.out.println("LL is empty");
@@ -168,19 +193,19 @@ public class LinkedList {
         // kaaam
         if (n == sz) {
             head = head.next;// remove first operation
-            return;
+            return; //head.next in contest
         }
 
         // sz-n
         int i = 1;
-        int idxToFind = sz - n;
+        int idxToFind = sz - n;//find the exact node from first
         Node prev = head;
         while (i < idxToFind) {
             prev = prev.next;
             i++;
         }
         prev.next = prev.next.next;
-        return;
+        return; //head in contest or on leetcode
     }
 
 
