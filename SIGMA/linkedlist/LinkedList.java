@@ -45,10 +45,10 @@ public class LinkedList {
     public void addLastl(int data) {
         Node newNode = new Node(data);
 
-        // If the Linked List is empty, make the new 
+        // If the Linked List is empty, make the new
         // node as the head and return
         // if (head == null) {
-        //     return newNode;
+        // return newNode;
         // }
 
         // Store the head reference in a temporary variable
@@ -59,12 +59,11 @@ public class LinkedList {
             last = last.next;
         }
 
-        // Change the next pointer of the 
+        // Change the next pointer of the
         // last node to point to the new node
         last.next = newNode;
 
     }
-    
 
     public void print() { // o(n)
         if (head == null) {
@@ -88,12 +87,19 @@ public class LinkedList {
         size++;
         Node temp = head;
         int i = 0;
+
+        // find the prev node
+        // and then for that prev get the next
         while (i < idx - 1) {
             temp = temp.next;
             i++;
         }
         // i = idx - 1; temp -> prev
+
+        // newNode ka next should point temp next
         newNode.next = temp.next;
+
+        // temp next should be newNode so that is point to new node
         temp.next = newNode;
     }
 
@@ -107,7 +113,12 @@ public class LinkedList {
             size = 0;
             return val;
         }
+
+        // stroring because we have to return which elem deleted
         int val = head.data;
+        // make the next elem as head
+        // because my head.next points to the next node so head = head.next
+        // garbage collector automatically deletes the first elem that we delete
         head = head.next;
         size--;
         return val;
@@ -169,8 +180,12 @@ public class LinkedList {
     }
 
     public void reverseLL() {
+
+        // prev is head ka index - 1
         Node prev = null;
+        // curr is head and we also did tail = head
         Node curr = tail = head;
+
         Node next;
         while (curr != null) {
             next = curr.next;
@@ -193,21 +208,20 @@ public class LinkedList {
         // kaaam
         if (n == sz) {
             head = head.next;// remove first operation
-            return; //head.next in contest
+            return; // head.next in contest
         }
 
         // sz-n
         int i = 1;
-        int idxToFind = sz - n;//find the exact node from first
+        int idxToFind = sz - n;// find the exact node from first
         Node prev = head;
         while (i < idxToFind) {
             prev = prev.next;
             i++;
         }
         prev.next = prev.next.next;
-        return; //head in contest or on leetcode
+        return; // head in contest or on leetcode
     }
-
 
     // !imp question
     // Slow-Fast approach
@@ -221,29 +235,29 @@ public class LinkedList {
         return slow;// slow is my midnode
     }
 
-    public boolean checkPalindrome(){
-        if(head == null || head.next == null){
-            return true; //if ll is empty or having only one element then its already a palindrome
+    public boolean checkPalindrome() {
+        if (head == null || head.next == null) {
+            return true; // if ll is empty or having only one element then its already a palindrome
         }
         // step1-> find mid
         Node middleNode = findMid(head);
-        
+
         // step2 -> reverse 2nd half
         Node prev = null;
         Node curr = middleNode;
         Node next;
-        while(curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
         }
-        Node right = prev;//right half head
-        Node left = head;//left half head
+        Node right = prev;// right half head
+        Node left = head;// left half head
 
         // step3 -> check left half & right half for palindrom
-        while(right !=null){
-            if(left.data != right.data){
+        while (right != null) {
+            if (left.data != right.data) {
                 return false;
             }
             left = left.next;
@@ -252,7 +266,141 @@ public class LinkedList {
         return true;
     }
 
+    public static boolean isCycle() {// floyd's cycle finding algorithm
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true; // cycle exist
+            }
+        }
+        return false; // cycle doesnt exist
+    }
 
+    public static void removeCycle() {
+        // detect cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycleExists = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                cycleExists = true;
+                break;
+            }
+        }
+        if (cycleExists == false) {
+            return;
+        }
+        // find meeting point
+        slow = head;
+        Node prev = null;// last node
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        // remove cycle -> last.next = null;
+        prev.next = null;
+    }
+
+    // !merge sort in ll
+
+    private Node getMid(Node head) {
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+
+    private Node merge(Node head1, Node head2) {
+        Node mergedLL = new Node(-1);
+        Node temp = mergedLL;
+        while (head1 != null && head2 != null) {
+            if (head1.data <= head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+                temp = temp.next;
+            } else {
+                temp.next = head2;
+                head2 = head2.next;
+                temp = temp.next;
+            }
+        }
+        while (head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+        while (head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+
+        return mergedLL.next;
+    }
+
+    public Node mergeSort(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // find mid
+        Node mid = getMid(head);
+        // left and right ms
+        Node rightHead = mid.next;
+        mid.next = null;
+        Node newLeft = mergeSort(head);
+        Node newRight = mergeSort(rightHead);
+        // merge
+        return merge(newLeft, newRight);
+    }
+
+
+    // !zig zig linked list
+    public void  zigZagLL(){
+        // find middle 
+        Node slow = head;
+        Node fast = head.next;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+        // reverse 2nd half
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+        while (curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        // alt merge  - zig-zag merge
+        Node left = head;
+        Node right = prev;
+        Node nextL , nextR;
+        while (left != null && right != null) {
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+
+            // updation
+            left  = nextL;
+            right = nextR;
+        }
+
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -271,7 +419,7 @@ public class LinkedList {
 
         // ll.deleteNthfromEnd(3);
         // ll.print();
-        
+
         // ll.removeFirst();
         // ll.removeLast();
         // ll.print();// 1->2->3->4->5
@@ -280,15 +428,38 @@ public class LinkedList {
         // ll.print();
         // System.out.println(ll.recursiveSearch(3));
         // System.out.println(ll.recursiveSearch(10));
-        
-        
-        ll.addLast(1);
-        ll.addLast(1);
-        ll.addLast(1);
-        ll.addLast(1);
-        ll.addLast(1);
-        System.out.println(ll.checkPalindrome());
 
+        // ll.addLast(1);
+        // ll.addLast(1);
+        // ll.addLast(1);
+        // ll.addLast(1);
+        // ll.addLast(1);
+        // System.out.println(ll.checkPalindrome());
+
+        // ll lecture 2
+        // head = new Node(1);
+        // Node temp = new Node(2);
+        // head.next = temp;
+        // head.next.next = new Node(3);
+        // head.next.next.next = temp;
+        // // 1->2->3->1
+        // System.out.println(isCycle());
+        // removeCycle();
+        // System.out.println(isCycle());
+
+
+
+        // for meger sort  -> o(nlogn)
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+        ll.addLast(6);
+        ll.print();
+        // ll.head  = ll.mergeSort(ll.head);
+        ll.zigZagLL();
+        ll.print();
 
     }
 }

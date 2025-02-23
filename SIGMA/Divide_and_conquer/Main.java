@@ -1,5 +1,5 @@
 public class Main {
-                    
+
     public static void mergeSort(int arr[], int si, int ei) {
         // base case
         if (si >= ei) {
@@ -16,7 +16,8 @@ public class Main {
     }
 
     public static void merge(int arr[], int si, int mid, int ei) {
-        // assume left(0,3) = 4 , right(4,6) = 3 -> 6-0+1 = 7 here ei is 6 ,  si will change everytime
+        // assume left(0,3) = 4 , right(4,6) = 3 -> 6-0+1 = 7 here ei is 6 , si will
+        // change everytime
         int temp[] = new int[ei - si + 1];
         int i = si;// iterator for left part
         int j = mid + 1; // iterator for left part
@@ -53,10 +54,9 @@ public class Main {
         }
     }
 
-
     public static void main(String[] args) {
-        int arr[] = { 6, 3, 9, 5, 2, 8  , -2 };
-        mergeSort(arr, 0, arr.length-1);
+        int arr[] = { 6, 3, 9, 5, 2, 8, -2 };
+        mergeSort(arr, 0, arr.length - 1);
         printArr(arr);
     }
 }

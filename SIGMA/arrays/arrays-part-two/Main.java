@@ -1,18 +1,17 @@
 import java.util.*;
 public class Main {
     // homework for all negative numbers o(n)
-    public static void kadanesAlgo(int arr[]) {
-        int ms = Integer.MIN_VALUE;
+    public static int kadanesAlgo(int nums[]) {
+        int ms = nums[0];
         int cs = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-            cs = cs + arr[i];
-            if (cs < 0) {
-                cs = 0;
+        for(int i = 0;i<nums.length;i++){
+            cs = cs + nums[i];
+            ms = Math.max(cs ,ms);
+            if(cs < 0) {
+                cs =0;
             }
-            ms = Math.max(cs, ms);
         }
-        System.out.println("Our max subarray sum is : " + ms);
+        return ms;
     }
 
     public static int trappedRainWater(int height[]) {//o(n)
