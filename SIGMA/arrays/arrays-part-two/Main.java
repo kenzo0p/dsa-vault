@@ -42,16 +42,16 @@ public class Main {
         }
         return trappedWater;
     }
-    public static int buyAndSellStocks(int prices[]){  //o(n)
+    public static int buyAndSellStocks(int sellingPrices[]){  //o(n)
         int buyPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
-        for(int i =0 ; i< prices.length;i++){
-            if(buyPrice < prices[i]){  //profit
-                int profit = prices[i] - buyPrice;//todays profit
+        for(int i =0 ; i< sellingPrices.length;i++){
+            if(buyPrice < sellingPrices[i]){  //profit
+                int profit = sellingPrices[i] - buyPrice;//todays profit
                 maxProfit = Math.max(maxProfit , profit);
 
             }else {
-                buyPrice = prices[i];
+                buyPrice = sellingPrices[i];
 
             }
         }
@@ -83,7 +83,7 @@ public class Main {
     }
     public static void main(String[] args) {
         int arr[] = {7,1,5,3,6,4 };
-        System.out.println(trappedRainWater(arr));
+        System.out.println(buyAndSellStocks(arr));
         
      }
 }

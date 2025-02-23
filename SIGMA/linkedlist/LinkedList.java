@@ -16,7 +16,7 @@ public class LinkedList {
     public static int size;
 
     // methods
-    public void addFirst(int data) {
+    public void addFirst(int data) {//o(1)
         // step 1 - create new node
         Node newNode = new Node(data);
         size++;

@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class LongestSubaarayWithGivenSumK {
 
+    // for lenght
     public int subarraySum(int[] a, int k) {
           int n = a.length; // size of the array.
 
@@ -35,6 +36,10 @@ public class LongestSubaarayWithGivenSumK {
 
         return maxLen;
     }
+
+
+    // leetcode 560
+    
 
     public static void main(String[] args) {
 

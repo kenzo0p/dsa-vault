@@ -104,7 +104,7 @@ public class Questions {
     //     System.out.println("Total subarrays: " + ts);
     // }
     // public static void subArraysSum(int numbers[]) {//o(n^3)
-    //     // int ts = 0; // (n(n+1))/2
+        // int ts = 0; // (n(n+1))/2
     //     int currSum = 0;
     //     int maxSum = Integer.MIN_VALUE;
     //     for (int i = 0; i < numbers.length; i++) {
@@ -159,8 +159,8 @@ public class Questions {
         // for(int i =0;i<arr.length;i++){
         // System.out.print(arr[i]+ " ");
         // }
-        // pairsArray(arr);
-        subArraysSum(arr);
+        pairsArray(arr);
+        // subArraysSum(arr);
 
     }
 }

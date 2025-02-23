@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class questions {
     // !Google ,amazon, apple, oracle, microsoft
@@ -16,15 +17,17 @@ public class questions {
                 System.out.print(matrix[i][endCol] + " ");
             }
             // bottom boundary
-            for (int j = endCol - 1; j >= startCol; j--) {
-                if (startCol == endCol) {
-                    break;
+            if (startRow != endRow) {
+                for (int j = endCol - 1; j >= startCol; j--) {
+                    
+                    System.out.print(matrix[endRow][j] + " ");
                 }
-                System.out.print(matrix[endRow][j] + " ");
             }
             // left boundary
-            for (int i = endRow - 1; i >= startRow + 1; i--) {
-                System.out.print(matrix[i][startCol] + " ");
+            if(startCol != endCol) {
+                for (int i = endRow - 1; i >= startRow + 1; i--) {
+                    System.out.print(matrix[i][startCol] + " ");
+                }
             }
             startCol++;
             endCol--;
@@ -39,55 +42,54 @@ public class questions {
         int sum = 0;
         // brute force o(n^2)
         // for (int i = 0; i < matrix.length; i++) {
-        //     for (int j = 0; j < matrix[0].length; j++) {
-        //         if (i == j) {
-        //             sum = sum + matrix[i][j];
-        //         } else if (i + j == matrix.length - 1) {
-        //             sum = sum + matrix[i][j];
-        //         }
-        //     }
+        // for (int j = 0; j < matrix[0].length; j++) {
+        // if (i == j) {
+        // sum = sum + matrix[i][j];
+        // } else if (i + j == matrix.length - 1) {
+        // sum = sum + matrix[i][j];
+        // }
+        // }
         // }
 
-
-
         // for best time compexicity o(n)
-        for(int i = 0;i<matrix.length;i++){
+        for (int i = 0; i < matrix.length; i++) {
             // for primary diagnol sum
-            sum+=matrix[i][i];
+            sum += matrix[i][i];
             // secondary diagonal sum
-            if(i!=matrix.length-1-i){
-                sum+=matrix[i][matrix.length-i-1];
+            if (i != matrix.length - 1 - i) {
+                sum += matrix[i][matrix.length - i - 1];
             }
         }
         return sum;
     }
 
-    // ! oracle  , adobe
+    // ! oracle , adobe
 
-    public static boolean stairCaseSearch(int matrix[][],int key){
+    public static boolean stairCaseSearch(int matrix[][], int key) {
         int row = 0;
-        int col = matrix[0].length-1;
-        while(row < matrix.length && col>=0){
-            if(matrix[row][col] == key){
-                System.out.println("Found key at: "+row + " " + col);
+        int col = matrix[0].length - 1;
+        while (row < matrix.length && col >= 0) {
+            if (matrix[row][col] == key) {
+                System.out.println("Found key at: " + row + " " + col);
                 return true;
-            }else if(key < matrix[row][col]){
+            } else if (key < matrix[row][col]) {
                 col--;
-            }else {
+            } else {
                 row++;
             }
         }
         System.out.println("Key is not found");
         return false;
     }
+
     public static void main(String[] args) {
         int matrix[][] = {
                 { 1, 2, 3, 4 },
                 { 5, 6, 7, 8 },
-                { 9, 10, 11, 12 },
-                { 13, 14, 15, 16 } };
+                { 9, 10, 11, 12 }, };
         int key = 14;
-        System.out.println(stairCaseSearch(matrix, key));
+        printspiral(matrix);
+        // System.out.println(stairCaseSearch(matrix, key));
         // int sum = diagonalSum(matrix);
         // System.out.println(sum);
         // System.out.println(matrix.length);
