@@ -13,6 +13,7 @@ public class QuickSort {
         int pivot = arr[ei];
         int i = si - 1;// to make space or to make place for elem that are smaller than pivot
         for (int j = si; j < ei; j++) {
+            // here we are swaping agar elem pivot se chote hote hain to
             if (arr[j] <= pivot) {
                 i++;
                 // swap
@@ -21,6 +22,7 @@ public class QuickSort {
                 arr[i] = temp;
             }
         }
+        // in this step we are placing the pivot to its position
         i++;
         int temp = pivot;
         arr[ei] = arr[i];
