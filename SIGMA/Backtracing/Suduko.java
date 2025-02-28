@@ -5,16 +5,16 @@ public class Suduko {
             return true;
         }
 
-        // recursion
         int nextRow = row, nextCol = col + 1;
         if (col + 1 == 9) {
             nextRow = row + 1;
             nextCol = 0;
         }
-
+        
         if (sudoku[row][col] != 0) {
             return sudukoSolver(sudoku, nextRow, nextCol);
         }
+        // recursion
         for (int digit = 1; digit <= 9; digit++) {
             if (isSafe(sudoku, row, col, digit)) {
                 sudoku[row][col] = digit;
@@ -78,7 +78,7 @@ public class Suduko {
                 { 0, 0, 0, 0, 8, 0, 0, 7, 9 }
         };
         if (sudukoSolver(sudoku, 0, 0)) {
-            System.out.println("Solution exit");
+            System.out.println("Solution exist");
             printSudoku(sudoku);
         } else {
             System.out.println("Solution does not exist");

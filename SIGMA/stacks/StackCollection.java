@@ -1,13 +1,14 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class StackCollection {
-    public static void pushAtBotton(Stack<Integer> stack, int data) {
+    public static void pushAtBottom(Stack<Integer> stack, int data) {
         if (stack.isEmpty()) {
             stack.push(data);
             return;
         }
         int top = stack.pop();
-        pushAtBotton(stack, data);
+        pushAtBottom(stack, data);
         stack.push(top);
     }
 
@@ -30,9 +31,10 @@ public class StackCollection {
         if (s.isEmpty()) {
             return;
         }
+        // top will store the elem
         int top = s.pop();
         reverseStack(s);
-        pushAtBotton(s, top);
+        pushAtBottom(s, top);
 
     }
 
@@ -42,33 +44,44 @@ public class StackCollection {
         }
     }
 
-    public static void stockSpan(int stocks[], int span[]) {
+    public static ArrayList<Integer> stockSpan(int stocks[]) {// o(n)
+        // creating a new stack for comaparing the elem of that index is greater than or
+        // not
         Stack<Integer> s = new Stack<>();
-        span[0] = 1;
+        // this list is to store the answer
+        ArrayList<Integer> span = new ArrayList<>();
+        // for first day everytime our stacks value is 1
+        span.add(1);
+        // push 0 so that it can compare with next elem 
         s.push(0);
+
+        // this loop will check and calculate the span for everyday
         for (int i = 1; i < stocks.length; i++) {
             int currPrice = stocks[i];
-            while (!s.isEmpty() && currPrice > stocks[s.peek()]) {
+            while (!s.isEmpty() && currPrice >= stocks[s.peek()]) {
                 s.pop();
             }
             if (s.isEmpty()) {
-                span[i] = i + 1;
+                span.add(i + 1);
 
             } else {
-                int prevHigh = s.peek();
-                span[i] = i - prevHigh;
+                span.add(i - s.peek());
 
             }
             s.push(i);
         }
+        return span;
     }
 
     public static void main(String[] args) {
         int stocks[] = { 100, 80, 60, 70, 60, 85, 100 };
-        int span[] = new int[stocks.length];
+        // stockSpan(stocks);
+
         int arr[] = { 6, 8, 0, 1, 3 };
         Stack<Integer> stack = new Stack<>();
         int nextGreater[] = new int[arr.length];
+        // backward start from 3
+
         for (int i = arr.length - 1; i >= 0; i--) {
             // 1 while loop
             while (!stack.isEmpty() && arr[stack.peek()] <= arr[i]) {
@@ -91,11 +104,6 @@ public class StackCollection {
         for (int i = 0; i < nextGreater.length; i++) {
             System.out.println(nextGreater[i] + " ");
         }
-
-        // stockSpan(stocks, span);
-        // for (int i = 0; i < span.length; i++) {
-        // System.out.println(span[i] + " ");
-        // }
 
         // stack.push(1);
         // stack.push(2);

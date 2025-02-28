@@ -9,7 +9,7 @@ public class RateInMaze {
 
         }
         if(maze[row][col] == -1 || maze[row][col] == 1){
-
+            // already visited or blocked cell
             return;
         }
 
@@ -17,13 +17,14 @@ public class RateInMaze {
             System.out.println(path);
             return;
         }
-        maze[row][col] = -1;
+        maze[row][col] = -1;//visit markres
         for(int idx = 0;idx<maze.length;idx++){
             int nr = row+dr[idx];//new row
             int nc = col + dc[idx];//new col
             
             rec(maze, nr, nc , path + dir[idx]);
         }
+        // jb sb log visited ho jaye lopp then unvisited mark kr do
         maze[row][col] = 0;//unvisit mark
     }
     public static void main(String[]args){
