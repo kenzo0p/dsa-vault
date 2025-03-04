@@ -45,8 +45,7 @@ public class StackCollection {
     }
 
     public static ArrayList<Integer> stockSpan(int stocks[]) {// o(n)
-        // creating a new stack for comaparing the elem of that index is greater than or
-        // not
+        // creating a new stack for comaparing the elem of that index is greater than or not
         Stack<Integer> s = new Stack<>();
         // this list is to store the answer
         ArrayList<Integer> span = new ArrayList<>();
@@ -73,26 +72,21 @@ public class StackCollection {
         return span;
     }
 
-    public static void main(String[] args) {
-        int stocks[] = { 100, 80, 60, 70, 60, 85, 100 };
-        // stockSpan(stocks);
-
-        int arr[] = { 6, 8, 0, 1, 3 };
+    public static int[] nextGreater(int nums[]){
         Stack<Integer> stack = new Stack<>();
-        int nextGreater[] = new int[arr.length];
+        int nextGreater[] = new int[nums.length];
         // backward start from 3
 
-        for (int i = arr.length - 1; i >= 0; i--) {
+        for (int i = nums.length - 1; i >= 0; i--) {
             // 1 while loop
-            while (!stack.isEmpty() && arr[stack.peek()] <= arr[i]) {
+            while (!stack.isEmpty() && nums[stack.peek()] <= nums[i]) {
                 stack.pop();
-
             }
             // if else
             if (stack.isEmpty()) {
                 nextGreater[i] = -1;
             } else {
-                nextGreater[i] = arr[stack.peek()];
+                nextGreater[i] = nums[stack.peek()];
 
             }
 
@@ -100,11 +94,15 @@ public class StackCollection {
 
             stack.push(i);
         }
+        return nextGreater;
+    }
 
-        for (int i = 0; i < nextGreater.length; i++) {
-            System.out.println(nextGreater[i] + " ");
-        }
+    public static void main(String[] args) {
+        int stocks[] = { 100, 80, 60, 70, 60, 85, 100 };
+        // stockSpan(stocks);
 
+        int arr[] = { 6, 8, 0, 1, 3 };
+        
         // stack.push(1);
         // stack.push(2);
         // stack.push(3);
