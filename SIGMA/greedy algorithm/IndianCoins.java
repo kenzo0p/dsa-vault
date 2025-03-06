@@ -14,11 +14,14 @@ public class IndianCoins {
                 }
             }
         }
+        for(int i = 0;i<ans.size();i++){
+            System.out.print(ans.get(i) +  " ");
+        }
         return countOfCoins;
     }
     public static void main(String[] args) {
         Integer coins[] = {1,2,5,10,20,50,100,500,2000};
-        int amount = 190;
+        int amount = 10000;
         int count = indianCoins(coins, amount);
         System.out.println(count);
     }

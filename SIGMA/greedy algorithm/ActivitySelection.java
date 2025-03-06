@@ -5,7 +5,7 @@ public class ActivitySelection {
         int maxAct = 0;
         ArrayList<Integer> ans = new ArrayList<>();
 
-        // ! remember this for sorting if in ques its not given that its end base sort
+        // ! remember this for sorting if in ques its not given that its already an hoend base sort
         /*
          * 
          * sorting if array are not sorted as end time basis sort
@@ -33,7 +33,6 @@ public class ActivitySelection {
             }
         }
         return maxAct;
-
     }
 
     public static void main(String[] args) {

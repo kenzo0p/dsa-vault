@@ -7,7 +7,7 @@ public class ChocolaProblem {
         Arrays.sort(costHor, Collections.reverseOrder());
 
         int h = 0, v = 0;
-        int hp = 1, vp = 1;
+        int hp = 1, vp = 1;// it will always be one piece
         int cost = 0;
         while (h < costHor.length && v < costVer.length) {
             // vertical cost < hor cost
@@ -16,7 +16,7 @@ public class ChocolaProblem {
                 hp++;
                 h++;
             } else {
-                cost += (costVer[v] * hp);
+                cost += (costVer[v] * hp); // vertical cuts
                 vp++;
                 v++;
             }
