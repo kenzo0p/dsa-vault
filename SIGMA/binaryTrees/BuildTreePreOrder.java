@@ -94,10 +94,6 @@ public class BuildTreePreOrder {
 
             }
         }
-
-        public static int heightOfTree(){
-
-        }
     }
 
     public static void main(String[] args) {
