@@ -10,7 +10,7 @@ public class BuildTreePreOrder {
         Node(int data) {
             this.data = data;
             this.left = null;
-            this.right = right;
+            this.right = null;
 
         }
 
@@ -21,6 +21,7 @@ public class BuildTreePreOrder {
 
         public static Node buildTree(int nodes[]) {// o(n)
             idx++;
+            //if we got -1 on that particular node then return null
             if (nodes[idx] == -1) {
                 return null;
             }
@@ -78,7 +79,7 @@ public class BuildTreePreOrder {
                     if (q.isEmpty()) {
                         break;
                     } else {
-                        // agar empty nahi hain to null add kardo kyunki next elem ke baad bhi ti next line chahiye
+                        // agar empty nahi hain to null add kardo kyunki next elem ke baad bhi to next line chahiye
                         q.add(null);
                     }
                 } else {

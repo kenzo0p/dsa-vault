@@ -109,8 +109,10 @@ public class HeightOfTree {
     }
     public static void TopView(Node root){
         // level order traversal
+        //
         Queue<Info2>  q = new java.util.LinkedList<>();
         HashMap<Integer , Node> map = new HashMap<>();
+        //to track the min , max value to get the values from map
         int min = 0;
         int max  = 0;
         q.add(new Info2(root, 0));
@@ -139,6 +141,7 @@ public class HeightOfTree {
             }
         }
         for(int i = min;i<=max;i++){
+            //map return karega ek node but we want his data thats why .data
             System.out.print(map.get(i).data + " ");
         }
         System.out.println();

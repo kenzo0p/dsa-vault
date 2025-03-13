@@ -1,3 +1,4 @@
+import java.util.*;
 public class SubArraySumEqualK{
     // leetcode 560
     public int subarraySum(int[] nums, int k) {

@@ -1,4 +1,4 @@
-package arrays;
+
 
 // most optimal soln
 public class MissingNumber {
