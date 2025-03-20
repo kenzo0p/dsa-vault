@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class HeapSort {
-    public static void heapify(int arr[], int i, int size) {//o(logn)
+    public static void heapify(int arr[], int i, int size) {//o(nlogn)
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
@@ -19,12 +19,17 @@ public class HeapSort {
             arr[i] = arr[maxIdx];
             arr[maxIdx] = temp;
             heapify(arr, maxIdx, size);
-            ;
         }
 
     }
 
     public static void heapSort(int arr[]) {//2*(nlogn) => o(nlogn)
+        /*
+         * steps -> 
+         * 1) arr -> maxHeap using heapify for non leaf nodes  (Build a maxheap)
+         * 
+         * 2) push biggest at last means swap first and last
+         */
         int n = arr.length;
         // step -1 build a maxHeap
         for (int i = n / 2; i >= 0; i--) {

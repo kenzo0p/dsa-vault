@@ -5,7 +5,7 @@ public class Heap {
         ArrayList<Integer> arr = new ArrayList<>();
 
         public void add(int data) {// o(logn)
-            // add at last index
+            // add at last index as in arrayList we add data at end
             arr.add(data);// o(1)
 
             // find the parent index
@@ -29,6 +29,17 @@ public class Heap {
         }
 
         private void heapify(int i) {
+
+        /*
+			steps -> 
+			-find left and right of the root
+			-then find minIdx
+			-check if its a laef nofe left/right < arr.size
+            -and find the minimum arr.get(minIdx) > arr.get(left) like that
+            -while check that if our minIdx change or not if it change then swap
+            -heapify takes o(logn)
+					
+		*/
             int left = 2 * i + 1;
             int right = 2 * i + 2;
             int minIdx = i;
@@ -49,19 +60,20 @@ public class Heap {
         }
 
         public int remove() {// o(logn)
-            int data = arr.get(0);
+            //in pq we remove from front or from 1st
+            int removedElem = arr.get(0);
 
             // step 1 -> swap first & last
             int temp = arr.get(0);
             arr.set(0, arr.get(arr.size() - 1));
             arr.set(arr.size() - 1, temp);
 
-            // step -> 2 delete the last
+            // step -> 2 remove the ele beacause in al we from last small wil be remove after swapping
             arr.remove(arr.size() - 1);
 
             // step -> 3 hepify
             heapify(0);
-            return data;
+            return removedElem;
         }
 
         public boolean isEmpty() {
