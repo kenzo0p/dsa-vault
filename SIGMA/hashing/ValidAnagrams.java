@@ -15,6 +15,7 @@ public class ValidAnagrams {
                 if (map.get(t.charAt(i)) == 1) {
                     map.remove(t.charAt(i));
                 } else {
+                    //if the count is 2 or more then decrease it 
                     map.put(t.charAt(i), map.get(t.charAt(i)) - 1);
                 }
             } else {
