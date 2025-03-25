@@ -19,10 +19,13 @@ public class Main {
         for (int level = 0; level < word.length(); level++) {
             int idx = word.charAt(level) - 'a';
             if (curr.children[idx] == null) {
+                // create new node for that char
                 curr.children[idx] = new Node();
             }
+
             curr = curr.children[idx];
         }
+
         curr.eow = true;
 
     }
@@ -74,29 +77,27 @@ public class Main {
                 count += countNodes(root.children[i]);
             }
         }
-        return count+1;
+        return count + 1;
     }
 
-
-
-
     public static String ans = "";
-    public static void longestWord(Node root , StringBuilder temp){
-        if(root == null){
+
+    public static void longestWord(Node root, StringBuilder temp) {
+        if (root == null) {
             return;
         }
 
-        for(int i= 0;i<26;i++){ //a ,b,c,d
-            if(root.children[i] != null && root.children[i].eow == true){
-                char ch = (char)(i+'a');
+        for (int i = 0; i < 26; i++) { // a ,b,c,d
+            if (root.children[i] != null && root.children[i].eow == true) {
+                char ch = (char) (i + 'a');
                 temp.append(ch);
-                if(temp.length() > ans.length()){
+                if (temp.length() > ans.length()) {
                     ans = temp.toString();
                 }
 
                 longestWord(root.children[i], temp);
-                //backtrack
-                temp.deleteCharAt(temp.length()-1);//backtrack
+                // backtrack
+                temp.deleteCharAt(temp.length() - 1);// backtrack
             }
         }
     }
@@ -116,30 +117,27 @@ public class Main {
         // String prefix1 = "app";
         // String prefix2 = "moon";
         // for (int i = 0; i < str.length; i++) {
-        //     insert(str[i]);
+        // insert(str[i]);
         // }
         // }System.out.println(startsWith(prefix1));
         // System.out.println(startsWith(prefix2));
 
-
-
-        //unique substring
+        // unique substring
         // String om = "ababa";
         // for (int i = 0; i < om.length(); i++) {
-        //     String suffix = om.substring(i);
-        //     insert(suffix);
+        // String suffix = om.substring(i);
+        // insert(suffix);
         // }
         // System.out.println(countNodes(root));
 
+        // longest word with all prefixess
+        String words[] = { "a", "banana", "app", "appl", "ap", "apply", "apple" };
 
-
-        //longest word with all prefixess
-        String words[] = {"a","banana" , "app" , "appl" , "ap" , "apply" ,"apple" };
-
-        for(int i = 0;i<words.length;i++){
+        for (int i = 0; i < words.length; i++) {
             insert(words[i]);
         }
-         longestWord(root, new StringBuilder(""));
+        longestWord(root, new StringBuilder(""));
         System.out.println(ans);
+
     }
 }

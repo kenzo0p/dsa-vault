@@ -1,4 +1,3 @@
-package leetcode.Arrays;
 
 public class rotateArray {
     public static void rotate(int arr[] , int k){
