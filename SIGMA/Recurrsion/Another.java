@@ -39,7 +39,7 @@ public class Another {
         if (n == 1 || n == 2) {
             return n;
         }
-        // 1*(n-1)+(n-1)*(n-2)
+        // 1*f(n-1)+(n-1)*f(n-2)
         int fnm1 = friendsPairing(n - 1);
         int fnm2 = friendsPairing(n - 2);
         int pairWays = (n - 1) * fnm2;
@@ -93,3 +93,4 @@ public class Another {
         binaryString(3, 0, "");
     }
 }
+\
