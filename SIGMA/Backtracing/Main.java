@@ -9,7 +9,7 @@ public class Main {
         // recursion
         arr[i] = val;
         changeArr(arr, i + 1, val + 1);//fnx call step
-        arr[i] = arr[i] - 2;//backtracing step
+        arr[i] = arr[i]-2;//backtracing step
     }
 
     public static void printArr(int arr[]) {

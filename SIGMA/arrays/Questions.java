@@ -33,6 +33,7 @@ public class Questions {
 
             // comparison
             if (arr[mid] == key) {
+                
                 return mid;
             }
             if (arr[mid] < key) { // right
