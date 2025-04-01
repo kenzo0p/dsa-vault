@@ -25,7 +25,7 @@ public class Questions {
         return largest;
     }
 
-    public static int binarySearch(int arr[], int key) {
+    public static int binarySearch(int arr[], int key) { //0(logn)
         // this algorithm is only for sorted arrays
         int start = 0, end = arr.length - 1;
         while (start <= end) {

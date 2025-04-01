@@ -1,4 +1,5 @@
 public class Suduko {
+    //TODO: valid sudoku leetcode and sudoku
     public static boolean sudukoSolver(int sudoku[][], int row, int col) {
         // base case
         if (row == 9) {
@@ -18,10 +19,10 @@ public class Suduko {
         for (int digit = 1; digit <= 9; digit++) {
             if (isSafe(sudoku, row, col, digit)) {
                 sudoku[row][col] = digit;
-                if (sudukoSolver(sudoku, nextRow, nextCol)) {
+                if (sudukoSolver(sudoku, nextRow, nextCol)) {//solution exist
                     return true;
                 }
-                sudoku[row][col] = 0;
+                sudoku[row][col] = 0;//backtrack
             }
         }
         return false;

@@ -34,7 +34,7 @@ public class ContainerWithMostWater {
             maxWater = Math.max(water, maxWater);
             // update pointer
             if (height.get(lp) < height.get(rp)) {
-                lp++;
+                lp++; //remeber you have to calculate the height  based on their height they will move
             } else {
                 rp--;
             }
