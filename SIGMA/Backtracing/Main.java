@@ -1,6 +1,6 @@
 
 public class Main {
-    public static void changeArr(int arr[], int i, int val) { //o(n)
+    public static void changeArr(int arr[], int i, int val) { // o(n)
         // base case
         if (i == arr.length) {
             printArr(arr);
@@ -8,8 +8,8 @@ public class Main {
         }
         // recursion
         arr[i] = val;
-        changeArr(arr, i + 1, val + 1);//fnx call step
-        arr[i] = arr[i]-2;//backtracing step
+        changeArr(arr, i + 1, val + 1);// fnx call step
+        arr[i] = arr[i] - 2;// backtracing step
     }
 
     public static void printArr(int arr[]) {
