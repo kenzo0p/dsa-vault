@@ -1,5 +1,5 @@
 import java.util.*;
-public class DayOne {
+public class SecondLargest {
     public static int secondLargestElem (int nums[]){
         int n = nums.length;
         Arrays.sort(nums);
