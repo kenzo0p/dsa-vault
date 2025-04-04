@@ -45,13 +45,13 @@ public class RotateArrayByKPlaces {
         k = k % n;// if k is greater than like if k== 7 then 7%n = this value will give same ans
                   // as but if its greater than it will give error that is indexoutofbound
         reverse(arr, 0, n - 1);
-        reverse(arr, 0, k - 1);
-        reverse(arr, k, n - 1);
+        reverse(arr, 0, n- k - 1); //TODO: think about this questions logic by dry running
+        reverse(arr, n-k, n - 1);
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
-        rotateByKPlaces(arr, 3);
+        int arr[] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+        rotateByKPlacesOptimal(arr, 3);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
