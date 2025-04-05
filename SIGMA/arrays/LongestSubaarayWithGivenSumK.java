@@ -1,10 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class LongestSubaarayWithGivenSumK {
 
     // for lenght
-    public int subarraySum(int[] a, int k) {
+    public static int subarraySum(int[] a, int k) {
           int n = a.length; // size of the array.
 
         Map<Integer, Integer> preSumMap = new HashMap<>();
@@ -42,6 +41,8 @@ public class LongestSubaarayWithGivenSumK {
     
 
     public static void main(String[] args) {
-
+        int nums [] = {10, 5, 2, 7, 1, -10};
+        int k  = 15;
+        System.out.println(subarraySum(nums , k));
     }
 }
