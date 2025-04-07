@@ -24,7 +24,7 @@ public class ClimbingStairs {
          int dp[] = new int[n+1];
          dp[0] = 1;
          for(int i = 1;i<=n;i++){
-            if(i==1){
+            if(i==1){ //why  ? -> think  when its one i-2 => -1 its not possible it will always gives a 0 ans that dp[1] = dp[1-1] i.e => 0 
                 dp[i] = dp[i-1];
             }else {
 
