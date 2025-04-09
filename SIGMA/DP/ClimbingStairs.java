@@ -1,4 +1,4 @@
-package SIGMA.DP;
+package SIGMA.DP
 
 import java.util.Arrays;
 
@@ -18,20 +18,39 @@ public class ClimbingStairs {
         return ways[n];
     }
 
-    //using tabulation
+    // using tabulation
 
-    public static int coutnWaysTab(int n){
-         int dp[] = new int[n+1];
-         dp[0] = 1;
-         for(int i = 1;i<=n;i++){
-            if(i==1){ //why  ? -> think  when its one i-2 => -1 its not possible it will always gives a 0 ans that dp[1] = dp[1-1] i.e => 0 
-                dp[i] = dp[i-1];
-            }else {
+    public static int coutnWaysTab(int n) {
+        int dp[] = new int[n + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            if (i == 1) { // why ? -> think when its one i-2 => -1 its not possible it will always gives a
+                          // 0 ans that dp[1] = dp[1-1] i.e => 0
+                dp[i] = dp[i - 1];
+            } else {
 
-                dp[i] = dp[i-1]+ dp[i-2];
+                dp[i] = dp[i - 1] + dp[i - 2];
             }
-         }
-         return dp[n];
+        }
+        return dp[n];
+    }
+
+    public int climbStairs(int n) {
+        if (n == 1 || n == 2) {
+            return n;
+        }
+        int ways[] = new int[n + 1];
+        int a = 1;// i-2
+        int b = 2;// i-1
+        int c = 3;// i
+        for (int i = 3; i <= n; i++) {
+            c = b + a;
+            int temp = b;
+            b = c;
+            a = temp;
+        }
+        return c;
+
     }
 
     public static void main(String[] agrs) {
