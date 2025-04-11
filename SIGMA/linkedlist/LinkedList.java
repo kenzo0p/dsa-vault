@@ -16,7 +16,7 @@ public class LinkedList {
     public static int size;
 
     // methods
-    public void addFirst(int data) {//o(1)
+    public void addFirst(int data) {// o(1)
         // step 1 - create new node
         Node newNode = new Node(data);
         size++;
@@ -206,16 +206,18 @@ public class LinkedList {
             sz++;
         }
         // kaaam
-        if (n == sz) {
+        if (n == sz) { // here we are deleting fromt last so think that when size == n then its a first
+                       // node
             head = head.next;// remove first operation
-            return; // head.next in contest
+            return; // head.next in contest leetcode
         }
 
         // sz-n
         int i = 1;
         int idxToFind = sz - n;// find the exact node from first
         Node prev = head;
-        while (i < idxToFind) {
+        while (i < idxToFind) { // for input 1->2->3->4->5->6->7 n=3 we have to remove the 5 then sz-n= 7-3 = 4
+                                // i.e 4 os its next points to next.next 6
             prev = prev.next;
             i++;
         }
@@ -362,13 +364,12 @@ public class LinkedList {
         return merge(newLeft, newRight);
     }
 
-
-    // !zig zig linked list
-    public void  zigZagLL(){
-        // find middle 
+    //IMPORTANT:zig zig linked list
+    public void zigZagLL() {
+        // find middle
         Node slow = head;
         Node fast = head.next;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -378,25 +379,25 @@ public class LinkedList {
         mid.next = null;
         Node prev = null;
         Node next;
-        while (curr!=null){
+        while (curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
         }
-        // alt merge  - zig-zag merge
+        
+        // alt merge - zig-zag merge
         Node left = head;
         Node right = prev;
-        Node nextL , nextR;
+        Node nextL, nextR;
         while (left != null && right != null) {
             nextL = left.next;
             left.next = right;
             nextR = right.next;
             right.next = nextL;
 
-
             // updation
-            left  = nextL;
+            left = nextL;
             right = nextR;
         }
 
@@ -447,9 +448,7 @@ public class LinkedList {
         // removeCycle();
         // System.out.println(isCycle());
 
-
-
-        // for meger sort  -> o(nlogn)
+        // for meger sort -> o(nlogn)
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
@@ -457,7 +456,7 @@ public class LinkedList {
         ll.addLast(5);
         ll.addLast(6);
         ll.print();
-        // ll.head  = ll.mergeSort(ll.head);
+        // ll.head = ll.mergeSort(ll.head);
         ll.zigZagLL();
         ll.print();
 
