@@ -7,7 +7,7 @@ public class DuplicateParenthesis {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             // closing
-            if (ch == ')') {
+            if (ch == ')')  {
                 int count = 0;
                 while (st.pop() != '(') {
                     count++;
