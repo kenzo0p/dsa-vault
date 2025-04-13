@@ -23,7 +23,7 @@ public class Second {
     }
 
     public static void main(String[] args) {
-        int nums[] = { 4, 1, 3, 888, 999, 1000, 9, 0 };
+        int nums[] = { 4, 1, 3, 888, 999, 1000, 9, 0 };w
         int k = 100;
         System.out.print(minOpearations(nums, k));
     }
