@@ -1,3 +1,4 @@
+package Arrays;
 public class RotateTheArrayByKPLaces {
     public static void reverse(int arr[], int start, int end) {
         while (start < end) {
