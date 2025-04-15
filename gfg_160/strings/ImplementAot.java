@@ -1,4 +1,4 @@
-package strings;
+package gfg_160.strings;
 
 public class ImplementAot {
 

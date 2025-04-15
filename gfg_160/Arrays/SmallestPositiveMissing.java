@@ -1,4 +1,4 @@
-package Arrays;
+package gfg_160.Arrays;
 public class SmallestPositiveMissing {
     // TODO:Look this question again specifically index logic 6 and 15 number line
     static int smallestPosMis(int nums[]) {

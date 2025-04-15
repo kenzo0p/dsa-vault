@@ -1,3 +1,4 @@
+package gfg_160.Arrays;
 public class MaximumProductSubarray {
     public static int mpopti(int arr[]){
         int pref = 1;

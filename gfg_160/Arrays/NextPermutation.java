@@ -1,4 +1,4 @@
-package Arrays;
+package gfg_160.Arrays;
 public class NextPermutation {
     public void nextPermutation(int[] nums) {
         int n = nums.length;

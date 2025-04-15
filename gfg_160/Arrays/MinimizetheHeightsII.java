@@ -1,5 +1,5 @@
+package gfg_160.Arrays;  
 import java.util.Arrays;
-
 public class MinimizetheHeightsII {
     static int getMinDiff(int[] arr, int k) {
         int n = arr.length;

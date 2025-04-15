@@ -1,4 +1,6 @@
+package gfg_160.Arrays;
 public class MoveAllZeroesToEnd {
+
     public static void move(int arr[]){
         /*
          * Approach ->
