@@ -1,4 +1,4 @@
-package SIGMA.DP;
+package DP.HouseRobber;
 
 import java.util.Arrays;
 
@@ -49,7 +49,7 @@ public class HouseRobber {
         t[0] = 0;
         t[1] = nums[0];
 
-        for (int i = 2; i < nums.length + 1; i++) {
+        for (int i = 2; i < n + 1; i++) {
             int steal = nums[i - 1] + t[i - 2];
             int skip = t[i - 1];
             t[i] = Math.max(steal, skip);
