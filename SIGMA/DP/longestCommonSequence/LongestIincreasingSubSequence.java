@@ -2,7 +2,7 @@ package SIGMA.DP.longestCommonSequence;
 
 import java.util.Arrays;
 import java.util.HashSet;
-
+//o(n*m)
 public class LongestIincreasingSubSequence {
     public static int lcs(int arr1[], int arr2[]) {
         int n = arr1.length;
