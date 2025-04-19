@@ -58,7 +58,7 @@ public class ZeroOneKnapsack {
         int n = val.length;
         
         int dp[][] = new int[n + 1][W + 1];
-        for (int i = 0; i < dp.length; i++) {// 0th col
+        for (int i = 0; i < dp.length; i++) {// 0th row
             dp[i][0] = 0;
         }
         for (int j = 0; j < dp[0].length; j++) {// 0th col

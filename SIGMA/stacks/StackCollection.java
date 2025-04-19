@@ -82,7 +82,7 @@ public class StackCollection {
             while (!stack.isEmpty() && nums[stack.peek()] <= nums[i]) {
                 stack.pop();
             }
-            // if else
+            // if else 
             if (stack.isEmpty()) {
                 nextGreater[i] = -1;
             } else {
