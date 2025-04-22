@@ -3,6 +3,12 @@ import java.util.*;
 public class InterleaveTwoHalves {
 
 
+    /*
+     * Interleave Two halves
+     * example -> 1,2,3,4,5,6,7,8,9,10
+     * 1,6,2,7,3,8,4,9,5,10
+     */
+
     public static void interLeave(Queue<Integer> q){
         Queue<Integer>firstHalf = new LinkedList<>();
         int size = q.size();

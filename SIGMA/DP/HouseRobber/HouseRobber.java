@@ -57,6 +57,22 @@ public class HouseRobber {
         return t[n];
     }
 
+    //bottom up without extra space
+    public static int robBottomUpWithoutExtraSpace(int nums[]){
+        int n = nums.length;
+        int prevPrev = 0;
+        int prev = nums[0];
+
+        for(int i =2;i<=n;i++){
+            int skip = prev;
+            int steal =nums[i-1]  + prevPrev;
+            int temp = Math.max(skip , steal);
+            prevPrev = prev;
+            prev = temp;
+        }
+        return prev;
+    }
+
     public static void main(String[] args) {
 
     }

@@ -1,6 +1,13 @@
 import java.util.*;
 public class FirstNonRepetingLetter {
 
+
+    /*
+     * Firs non repeating element 
+     * example - > aabccxb ans - > x
+     * 
+     */
+
     public static void printNonRepeating(String str){
         // creating an freqeincy array to track the a to z numbers to track how many time they have come
         int freq[] = new int[26];//'a to z'
@@ -17,12 +24,12 @@ public class FirstNonRepetingLetter {
                 q.remove();
 
             }
-            // then if q is empty that means koi non repeating elem exist nhi karta return -1   else return the peek elem
-            if(q.isEmpty()){
-                System.out.print(-1+" ");
-            }else {
-                System.out.print(q.peek() + " ");
-            }
+        }
+        // then if q is empty that means koi non repeating elem exist nhi karta return -1   else return the peek elem
+        if(q.isEmpty()){
+            System.out.print(-1+" ");
+        }else {
+            System.out.print(q.peek() + " ");
         }
         System.out.println();
     }

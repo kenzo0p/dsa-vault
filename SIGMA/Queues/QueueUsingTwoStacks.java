@@ -9,7 +9,13 @@ public class QueueUsingTwoStacks {
             return s1.isEmpty();
         }
 
+
+
         public static void add(int data) {
+            /*
+             * for adding in the stack we need to first remove all elements from stack 1 and push into s2 
+             * then after that add the elem in s1 then again pop from s2 to s1 
+             */
             while (!s1.isEmpty()) {
                 s2.push(s1.pop());
             }

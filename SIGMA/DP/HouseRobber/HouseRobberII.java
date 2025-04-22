@@ -32,6 +32,12 @@ public class HouseRobberII {
         if (n == 1) {
             return nums[0];
         }
+        if(n==2){
+            return Math.max(nums[0] , nums[1]);
+        }
+
+
+
         int memo[] = new int[n + 1];
         memo[0] = 0;
         memo[1] = nums[0];
@@ -43,9 +49,9 @@ public class HouseRobberII {
             memo[i] = Math.max(skip , take);
         }
         int result1 = memo[n - 1];
+        
+        
         memo = new int[n + 1]; // clear for case 2
-
-
         // case 1 -> (skip 1st house - hence you can take the last house)
         memo[0] = 0;
         memo[1] = 0; //skip 1st house
@@ -57,6 +63,40 @@ public class HouseRobberII {
         int result2 = memo[n];
         return Math.max(result1 , result2);
 
+    }
+
+
+
+
+
+
+    //without extra space
+    //how to we figure how to convert into constant space
+    
+    private int solve(int nums[] , int l , int r){
+        int prev = 0;
+        int prevPrev = 0;
+        for(int i = l;i<=r;i++){
+            int skip = prev;
+            int take = nums[i] + prevPrev;
+            int temp = Math.max(skip , take);
+            prevPrev = prev;
+            prev = temp;
+        }
+        return prev;
+    }
+
+    public int robWithoutExtraSpace(int nums[]) {
+        int n = nums.length;
+        if (n == 1) {
+            return nums[0];
+        }
+        if (n == 2) {
+            return Math.max(nums[0], nums[1]);
+        }
+        int take_first_house = solve(nums, 0, n - 2);
+        int skip_first_house = solve(nums, 1, n - 1);
+        return Math.max(take_first_house, skip_first_house);
     }
 
     public static void main(String[] args) {

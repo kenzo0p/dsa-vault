@@ -11,6 +11,8 @@ public class StackUsingTwoQueues {
         }
 
         public void push(int data) {
+
+            //jo bhi q khali nahi hain usme bhardo
             if (!q1.isEmpty()) {
                 q1.add(data);
             } else {

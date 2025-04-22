@@ -53,6 +53,49 @@ public class TopologicalSorting {
 
     }
 
+    // gfg
+    // using dfs
+    private static void topSortUtil(List<List<Integer>> adj, int u, boolean vis[], Stack<Integer> st) {
+        vis[u] = true;
+
+        // pehele mere (u ke node ke) bacho ko dalo
+        for (int v : adj.get(u)) {
+            if (!vis[v]) {
+                topSortUtil(adj, v, vis, st);
+            }
+        }
+        // fir muje dale
+        st.push(u);
+    }
+
+    public static ArrayList<Integer> topoSort(int V, int[][] edges) {
+        // code here
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int edge[] : edges) {
+            int from = edge[0];
+            int to = edge[1];
+            adj.get(from).add(to);
+        }
+        Stack<Integer> st = new Stack<>();
+        boolean vis[] = new boolean[V];
+        for (int i = 0; i < V; i++) {
+            if (!vis[i]) {
+                topSortUtil(adj, i, vis, st);
+            }
+        }
+
+        ArrayList<Integer> result = new ArrayList<>();
+        while (!st.isEmpty()) {
+            result.add(st.pop());
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         int v = 6;
         @SuppressWarnings("unchecked")

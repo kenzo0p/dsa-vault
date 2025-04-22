@@ -52,6 +52,48 @@ public class CycleDetectionDirectedGraph {
         return false;
     }
 
+
+
+    //gfg soln
+
+    private boolean isCycleDfs(List<List<Integer>>adj , int u , boolean[]vis , boolean[]stack){
+        vis[u] = true; 
+        stack[u] = true; 
+        
+        for(int v : adj.get(u)){
+            //if not visited , then we check for cycle in dfs
+            if(vis[v] == false && isCycleDfs(adj , v , vis , stack)){
+                return true;
+            }else if (stack[v] == true){
+                return true;
+            }
+            
+        }
+        stack[u] = false;
+        return false;
+    }
+    public boolean isCyclic(int V, int[][] edges) {
+        List<List<Integer>>adj = new ArrayList<>();
+        
+        for(int i = 0;i<V;i++){
+            adj.add(new ArrayList<>());
+        }
+        for(int edge[] : edges){
+            int from = edge[0];
+            int to = edge[1];
+            adj.get(from).add(to); // directed graph
+        }
+        // code here
+        boolean vis[] = new boolean[V];
+        boolean stack[] = new boolean[V];
+        for(int i = 0;i<V;i++){
+           if(!vis[i] && isCycleDfs(adj , i, vis,stack )) {
+               return true;
+           }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         int v = 4;
         @SuppressWarnings("unchecked")
