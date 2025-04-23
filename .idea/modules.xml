@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SIGMA/SIGMA.iml" filepath="$PROJECT_DIR$/SIGMA/SIGMA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SIGMA (DSA).iml" filepath="$PROJECT_DIR$/SIGMA (DSA).iml" />
+      <module fileurl="file://$PROJECT_DIR$/TCSNQT/TCSNQT.iml" filepath="$PROJECT_DIR$/TCSNQT/TCSNQT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grind-169/grind-169.iml" filepath="$PROJECT_DIR$/grind-169/grind-169.iml" />
+    </modules>
+  </component>
+</project>

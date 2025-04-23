@@ -1,3 +1,4 @@
+package topological_sorting;
 import java.util.*;
 
 public class TopologicalSortUsingBfs {
@@ -61,6 +62,77 @@ public class TopologicalSortUsingBfs {
         }
         System.out.println();
     }
+
+
+    //gfg soln top sort using kahns algo (bfs)
+    // jiska indeg 0 hoga usko pehle likhenge u->v<-x    x,u,v or uxv
+    /*
+     * example in book ->
+     * adj list ->
+     * o->2,3
+     * 1->4
+     * 2->3,1
+     * 3->1,
+     * 4
+     * 5->1,4
+     * 
+     * indeg array -> [0,3,1,2,2,0]
+     * 2-> put in queue jiski indeg 0 hogi
+     * 3-> simple bfs 
+     * 
+     * 
+     */
+    
+      
+    public static ArrayList<Integer> topoSort(int V, int[][] edges) {
+        // code here
+        ArrayList<Integer>result = new ArrayList<>();
+
+
+        //creating undirected graph
+        List<List<Integer>>adj = new ArrayList<>();
+        for(int i = 0;i<V;i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int edge[] : edges){
+            int from = edge[0];
+            int to = edge[1];
+            adj.get(from).add(to);
+        }
+        
+        // step -> 1
+        int indeg[] = new int[V];
+        for(int u = 0;u<V;u++){
+            for(int v : adj.get(u)){
+                indeg[v]++;
+            }
+        }
+        
+        
+        //step -> 2 fill the queue jiski indeg 0  hogi
+        Queue<Integer>q = new LinkedList<>();
+        for(int i = 0;i<V;i++){
+            if(indeg[i] == 0){
+                q.add(i);
+            }
+        }
+        
+        
+        //step -> 3 simple bfs
+        while(!q.isEmpty()){
+            int u =  q.remove();
+            result.add(u);
+            for(int v : adj.get(u)){
+                indeg[v]--;
+                if(indeg[v] == 0){
+                    q.add(v);
+                }
+            }
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
         int v = 6;

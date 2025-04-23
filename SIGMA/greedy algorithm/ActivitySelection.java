@@ -1,11 +1,15 @@
 import java.util.*;
 
 public class ActivitySelection {
+    //same question disjoint set , max meetings in a room
+
+
+    //
     public static int actSelection(int start[], int end[]) {
         int maxAct = 0;
         ArrayList<Integer> ans = new ArrayList<>();
 
-        // ! remember this for sorting if in ques its not given that its already an hoend base sort
+        // ! remember this for sorting if in ques its not given that its already an end base sort
         /*
          * 
          * sorting if array are not sorted as end time basis sort
@@ -16,11 +20,11 @@ public class ActivitySelection {
          * activities[i][2] = end[i];
          * }
          * lambda function -> short form
-         * Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));
+         * Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));//2 because of end time sort
          * 
          */
 
-        // first activity
+        // first activity 1->2  
         maxAct = 1;
         ans.add(0);// activities[0][0]
         int lastEnd = end[0];// activities[0][2]
