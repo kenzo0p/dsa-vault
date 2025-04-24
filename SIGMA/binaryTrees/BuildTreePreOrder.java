@@ -62,7 +62,7 @@ public class BuildTreePreOrder {
             System.out.print(root.data + " ");
         }
 
-        // level order traverssal //! microsoft , fb , adobe
+        //TODO: level order traverssal , microsoft , fb , adobe
         public static void levelOrder(Node root) {
             if (root == null) {
                 return;
@@ -83,7 +83,7 @@ public class BuildTreePreOrder {
                         q.add(null);
                     }
                 } else {
-                    // 
+                    // check left and right if not null q.add(currNode.left) or q.add(currNode.right)
                     System.out.print(currNode.data + " ");
                     if (currNode.left != null) {
                         q.add(currNode.left);
@@ -92,10 +92,10 @@ public class BuildTreePreOrder {
                         q.add(currNode.right);
                     }
                 }
-
             }
         }
     }
+
 
     public static void main(String[] args) {
 

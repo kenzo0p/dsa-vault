@@ -44,6 +44,8 @@ public class HeightOfTree {
         return nodes;
     }
 
+
+    //diamteter -> no of nodes in the longest path between 2 leaves
     public static int diameter(Node root){//o(n^2)
         if(root == null){
             return 0;
@@ -55,6 +57,8 @@ public class HeightOfTree {
         int selfDiameter = leftHt + rightHt+1;
         return Math.max(selfDiameter , Math.max(rightDiameter, leftDiameter));
     }
+
+    //optimum
     static class Info {
         int diameter;
         int height;
@@ -63,7 +67,7 @@ public class HeightOfTree {
             this.height = height;
         }
     }
-    public static Info diameter2(Node root){//o(n^2)
+    public static Info diameter2(Node root){//o(2^n)
         if(root == null){
             return new Info(0, 0);
         }
@@ -108,8 +112,12 @@ public class HeightOfTree {
         }
     }
     public static void TopView(Node root){
+        /*
+         * Approach
+         * go to the book
+         * 
+         */
         // level order traversal
-        //
         Queue<Info2>  q = new java.util.LinkedList<>();
         HashMap<Integer , Node> map = new HashMap<>();
         //to track the min , max value to get the values from map
@@ -147,7 +155,7 @@ public class HeightOfTree {
         System.out.println();
     }
     public static void kLevel(Node root , int level , int k){
-        // /in this question we have to print the kth level of the gove tree
+        // /in this question we have to print the kth level of the giveb tree
         if(root == null){
             return;
         }

@@ -95,6 +95,62 @@ public class CycleDetectionDirectedGraph {
         return false;
     }
 
+
+
+    //using bfs using top sort kahns algo agar top sort nahi hota to return true otherwise false  vid -9
+
+
+    public boolean isCyclicUsingTopSortKahnsAlgo(int V, int[][] edges) {
+        List<List<Integer>>adj = new ArrayList<>();
+        for(int i = 0;i<V;i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int edge[] : edges){
+            int from  = edge[0];
+            int to = edge[1];
+            adj.get(from).add(to);
+        }
+        
+        
+        //fill the indeg
+        int inDeg[] = new int[V];
+        for(int u = 0;u<V;u++){
+            for(int v : adj.get(u)){
+                inDeg[v]++;
+            }
+        }
+        
+        int count = 0;
+        Queue<Integer>q = new LinkedList<>();
+        //fill the queue
+        for(int i = 0;i<V;i++){
+            if(inDeg[i] == 0){
+                q.add(i);
+                count++;
+            }
+        }
+        
+        //3 simple bfs
+        
+        while(!q.isEmpty()){
+            int u = q.remove();
+            for(int v : adj.get(u)){
+                inDeg[v]--;
+                if(inDeg[v] == 0){
+                    q.add(v);
+                    count++;
+                }
+            }
+        }
+        
+        if(count == V){ //mtlb we visited all nodes  , mtlb no cycle
+            return false;
+        }
+        return true;
+    }
+    
+
     public static void main(String[] args) {
         int v = 4;
         @SuppressWarnings("unchecked")
