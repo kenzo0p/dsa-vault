@@ -1,7 +1,9 @@
 package Dfs_and_bfs;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 //leetcode 547
 
@@ -87,6 +89,85 @@ public class NumberOfProvinces {
         return count;
     }
 
+
+
+    //using bfs
+
+    private void bfs(List<List<Integer>>adj , int u , boolean vis[]){
+        Queue<Integer>q = new LinkedList<>();
+        q.add(u);
+        vis[u] = true;
+
+        while(!q.isEmpty()){
+            int curr = q.remove();
+            for(int v : adj.get(curr)){
+                if(!vis[v]){
+                    bfs(adj , v  , vis);
+                }
+            }
+        }
+    }
+
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (isConnected[i][j] == 1 && i != j) {
+                    adj.get(i).add(j);
+                    adj.get(j).add(i);
+                }
+            }
+        }
+        int count = 0;
+        boolean vis[] = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if (!vis[i]) {
+                count++;
+                bfs(adj, i, vis);
+            }
+        }
+
+        return count;
+    }
+
+    //another method using bfs not another just by not creating adj list
+
+    private int n;
+
+    private void bfs(int isConnected[][], int u, boolean vis[]) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(u);
+        vis[u] = true;
+
+        while (!q.isEmpty()) {
+            int curr = q.remove();
+            //neighbours
+            for (int v = 0; v < n; v++) {
+                if (!vis[v] && isConnected[u][v] == 1 && u != v) {
+                    bfs(isConnected, v, vis);
+                }
+            }
+        }
+    }
+
+    public int findCircleNum(int[][] isConnected) {
+        n = isConnected.length;
+        int count = 0;
+        boolean vis[] = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if (!vis[i]) {
+                count++;
+                bfs(isConnected, i, vis);
+            }
+        }
+
+        return count;
+    }
     public static void main(String[] args) {
 
     }

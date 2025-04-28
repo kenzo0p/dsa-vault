@@ -7,7 +7,6 @@ public class Main {
 
         Node(int data) {
             this.data = data;
-            ;
         }
 
     }
@@ -52,6 +51,8 @@ public class Main {
 
     }
 
+
+    //TODO:Revisit delete node in bst
     public static Node deleteNode(Node root, int target) {
         if(root == null){
             return null;
@@ -74,6 +75,8 @@ public class Main {
             }
 
             // case 3 -> two childrens
+            //replace the value with inorder successor -> left most node in right subtree
+            //delete the node for inorder successor
             Node IS = findInorderSuccessor(root.right);
             root.data = IS.data;
             root.right = deleteNode(root.right, IS.data);
@@ -125,13 +128,16 @@ public class Main {
         }
         printRoot2Leaf(root.left, path);
         printRoot2Leaf(root.right, path);
-        path.remove(path.size()-1);//to remove the last elem to backtack
+        path.remove(path.size()-1);//to remove the last elem to backtack -> when we go to the last if left and print all the path then we have to remove last node and go in right of that ..............
     }
 
     public static boolean isValidBst(Node root , Node min , Node max){
+        //or we can  find the inorder traversel inorder traversal will give the ascending order seq in only bst
         if(root == null){
             return true;
         }
+
+        // call for first like left then right;
         if(min != null && root.data <= min.data){
             return false;
         }else if(max != null && root.data >= max.data){
