@@ -65,7 +65,7 @@ public class TopologicalSortUsingBfs {
 
 
     //gfg soln top sort using kahns algo (bfs)
-    // jiska indeg 0 hoga usko pehle likhenge u->v<-x    x,u,v or uxv
+    // jiska indeg 0 hoga usko pehle likhenge 0u->2v<-x0    xuv or uxv
     /*
      * example in book ->
      * adj list ->
@@ -123,7 +123,7 @@ public class TopologicalSortUsingBfs {
         while(!q.isEmpty()){
             int u =  q.remove();
             result.add(u);
-            for(int v : adj.get(u)){
+            for(int v : adj.get(u)){ //neighbours
                 indeg[v]--;
                 if(indeg[v] == 0){
                     q.add(v);

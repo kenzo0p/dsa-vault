@@ -55,7 +55,20 @@ public class TopologicalSorting {
     }
 
     // gfg
-    // using dfs
+    // top sort using dfs
+    /*
+     * topological sorting is only possible in directed acyclic graph (DAG) vid -> 7
+     * 
+     *  1 -> 2 -> 3 ans => 1,2,3 ✅ 2,1,3 ❌
+     * 
+     *  u <-> v not possible beacuse of cycle
+     *  
+     * u-> v  u,v
+     * 
+     * v ko dalo then u in stack 
+     * pehele mere bacho ko dalo fir muje stack mein dalo
+     * 
+     */
     private static void topSortUtil(List<List<Integer>> adj, int u, boolean vis[], Stack<Integer> st) {
         vis[u] = true;
 
@@ -65,7 +78,7 @@ public class TopologicalSorting {
                 topSortUtil(adj, v, vis, st);
             }
         }
-        // fir muje dale
+        // fir muje dal0
         st.push(u);
     }
 
@@ -96,7 +109,6 @@ public class TopologicalSorting {
 
         return result;
     }
-
     public static void main(String[] args) {
         int v = 6;
         @SuppressWarnings("unchecked")
