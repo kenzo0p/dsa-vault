@@ -58,6 +58,47 @@ public class CourseSchedule {
     }
 
 
+
+    //using dfs
+
+    private boolean dfsIsCycle(List<List<Integer>>adj , int u , boolean vis[] , boolean stack[]){
+        vis[u] = true;
+        stack[u] = true;
+        for(int v : adj.get(u)){
+            if(!vis[v] &&dfsIsCycle(adj , v , vis , stack) ){
+                return true;
+            }else if(stack[v] == true){
+                return true;
+            }
+            
+        }
+        stack[u] = false;
+        return false;
+    }
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<List<Integer>>adj = new ArrayList<>();
+        boolean stack[] = new boolean[numCourses];
+        for(int i = 0;i<numCourses;i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int pre[] :prerequisites ){
+            int u = pre[0];
+            int v = pre[1];
+            adj.get(v).add(u);
+        }
+
+        boolean vis[] = new boolean[numCourses];
+        for(int i = 0;i<numCourses;i++){
+            if(!vis[i] && dfsIsCycle(adj  , i , vis  , stack)){
+                return false; //if cyclec then we cant complete the courses
+            }
+        }
+        return true; //agar cycle nahi hain to we can complete it
+    }
+
+
+
     
     public static void main(String[] args) {
 
