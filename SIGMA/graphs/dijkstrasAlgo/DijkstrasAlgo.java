@@ -1,3 +1,4 @@
+package dijkstrasAlgo;
 import java.util.*;
 
 public class DijkstrasAlgo {
