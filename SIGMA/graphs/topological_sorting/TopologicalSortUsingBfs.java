@@ -88,8 +88,6 @@ public class TopologicalSortUsingBfs {
         // code here
         ArrayList<Integer>result = new ArrayList<>();
 
-
-        //creating undirected graph
         List<List<Integer>>adj = new ArrayList<>();
         for(int i = 0;i<V;i++){
             adj.add(new ArrayList<>());

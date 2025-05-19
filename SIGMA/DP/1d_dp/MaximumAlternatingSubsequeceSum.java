@@ -1,7 +1,7 @@
 //leetcode 1911
 public class MaximumAlternatingSubsequeceSum {
     /*
-     * //TODO: make the tree diagram one more time for clearity
+     * //TODO: make the tree diagram one more time for clearity Google  ,amazon , meta
      * ex -> nums={4,2,5,3}
      * output -> 7
      * subseq -> {4,2,5} -> (4+5) - 2 = 7 ✅
@@ -29,7 +29,7 @@ public class MaximumAlternatingSubsequeceSum {
 
         long skip = solve(idx + 1, flag, nums);
         long val = nums[idx];
-        if (flag == false) {
+        if (flag == false) { //odd index -
             val = -val;
         }
 
@@ -50,7 +50,7 @@ public class MaximumAlternatingSubsequeceSum {
         int n = nums.length;
         long t[][] = new long[n + 1][2];
         for (int i = 1; i < n + 1; i++) {
-            // even length subseq
+            // even length subseq 
             t[i][0] = Math.max(t[i - 1][1] - nums[i - 1], t[i - 1][0]);
             // odd
             t[i][1] = Math.max(t[i - 1][0] + nums[i - 1], t[i - 1][1]);

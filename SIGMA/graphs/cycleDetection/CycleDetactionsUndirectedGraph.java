@@ -128,7 +128,7 @@ public class CycleDetactionsUndirectedGraph {
             for (int v : adj.get(curr.node)) {
                 if (!vis[v]) {
                     vis[v] = true;
-                    q.add(new Pair(v, curr.node));// curr.node or u
+                    q.add(new Pair(v, curr.node));// curr.node
 
                 } else if (v != curr.parent) {
                     return true;

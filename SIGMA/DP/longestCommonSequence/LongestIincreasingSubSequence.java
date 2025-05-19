@@ -2,42 +2,56 @@ package SIGMA.DP.longestCommonSequence;
 
 import java.util.Arrays;
 import java.util.HashSet;
+
 //o(n*m)
 public class LongestIincreasingSubSequence {
 
-    //using memo
+    /*
+     * 300. Longest Increasing Subsequence
+     * Medium
+     * Given an integer array nums, return the length of the longest strictly
+     * increasing subsequence.
+     * 
+     * Example 1: 
+     * Input: nums = [10,9,2,5,3,7,101,18]
+     * Output: 4
+     * Explanation: The longest increasing subsequence is [2,3,7,101], therefore the
+     * length is 4.
+     */
+
+    // using memo
 
     private int n;
-    private int solve(int dp[][] , int nums[] , int i  , int p){
-        if(i>=n){
+
+    private int solve(int dp[][], int nums[], int i, int prevIndex) {
+        if (i >= n) {
             return 0;
         }
 
-        if( p!=-1 && dp[i][p]!=-1){
-            return dp[i][p];
+        if (prevIndex != -1 && dp[i][prevIndex] != -1) {
+            return dp[i][prevIndex];
         }
         int take = 0;
-        if(p==-1 || nums[i] > nums[p]){
-            take = 1+solve(dp , nums , i+1 , i);
+        if (prevIndex == -1 || nums[i] > nums[prevIndex]) {
+            take = 1 + solve(dp, nums, i + 1, i);
         }
-        int skip = solve(dp , nums , i+1 , p);
-        if(p!=-1){
-           return  dp[i][p] = Math.max(take , skip);//it still run without return here
+        int skip = solve(dp, nums, i + 1, prevIndex);
+        if (prevIndex != -1) {
+            dp[i][prevIndex] = Math.max(take, skip);// it still run without return here
         }
-        return Math.max(take ,skip);
+        return Math.max(take, skip);
     }
+
     public int lengthOfLIS(int[] nums) {
         n = nums.length;
-        int dp[][] = new int[n+1][n+1];
-        for(int d[] : dp){
-            Arrays.fill(d ,-1);
+        int dp[][] = new int[n + 1][n + 1];
+        for (int d[] : dp) {
+            Arrays.fill(d, -1);
         }
-        return solve(dp , nums , 0,-1);
+        return solve(dp, nums, 0, -1);
     }
 
-    //using bottom up
-
-
+    // using bottom up
 
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
@@ -55,16 +69,12 @@ public class LongestIincreasingSubSequence {
 
         return maxLis;
     }
-
-
-
-    //another method -> 
-
+    
 
     public static int lcs(int arr1[], int arr2[]) {
         int n = arr1.length;
         int m = arr2.length;
-        int dp[][] = new int[n + 1][m + 1]; 
+        int dp[][] = new int[n + 1][m + 1];
         // inialize
         for (int i = 0; i < n + 1; i++) {
             dp[i][0] = 0;
@@ -88,6 +98,8 @@ public class LongestIincreasingSubSequence {
 
     }
 
+    //another method
+
     public static int longestIncreasingSubSequence(int nums[]) {
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
@@ -109,6 +121,6 @@ public class LongestIincreasingSubSequence {
     public static void main(String[] args) {
         int arr[] = { 50, 3, 10, 7, 40, 80 };
         System.out.println(longestIncreasingSubSequence(arr));
-        
+ 
     }
 }

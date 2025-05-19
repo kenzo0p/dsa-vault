@@ -24,7 +24,8 @@ public class HouseRobber {
             return 0;
         if (memo[n] != -1) {
             return memo[n];
-        }
+        } 
+        //take the first house and skip adj i.e n-2   1,2,3 1 rob now take 3
         int steal = nums[n - 1] + helper(nums, n - 2, memo);
         int skip = helper(nums, n - 1, memo);
         return memo[n] = Math.max(steal, skip);

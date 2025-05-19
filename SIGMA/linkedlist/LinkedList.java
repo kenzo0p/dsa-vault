@@ -137,7 +137,7 @@ public class LinkedList {
         // prev : i = size-2
         Node prev = head;
         for (int i = 0; i < size - 2; i++) {
-            prev = prev.next;
+            prev = prev.next; 
         }
         int val = prev.next.data;// tail.data
         prev.next = null;
