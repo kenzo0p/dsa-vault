@@ -41,8 +41,8 @@ public class DoubleLL {
         head = newNode;
     }
 
-    // remove last
-    public int removeLast() {
+    // remove First
+    public int removeFirst() {
         if (head == null) {
             System.out.println("Dll is empty");
             return Integer.MIN_VALUE;
@@ -60,6 +60,37 @@ public class DoubleLL {
         size--;
         return val;
     }
+
+    public static int removeLast() {
+        if (head == null) {
+            System.out.println("LL IS EMPTY");
+            return Integer.MIN_VALUE;
+        }
+        if (size == 1) {
+            int val = tail.data;
+            head = null;
+            tail = null;
+            size--;
+            return val;
+        }
+
+        int val = tail.data;
+        tail = tail.prev;
+        tail.next = null;
+        size--;
+        return val;
+
+    }
+
+    // TODO : REverse a dll IMP example -> 1,2,3
+    /*
+     * using stack also possible naive soln extra space
+     * curr = 1
+     * prev = null
+     * next = 2
+     * 
+     * 
+     */
 
     public void reverseDll() {
         Node curr = head;

@@ -1,7 +1,9 @@
-- BFS
-- DFS
+- BFS 
 - cycle detection bfs dfs directed and undirected graph
 - TOPOLOGICAL SORT
-- Topologocal sort using dfs
-- Topological sort using bfs kahns algorithm
+- Topologocal sort using dfs (pehele mere bache fir mein)
+- Topological sort using bfs kahns algorithm (indeg)
 - cycle detection usig bfs directed graph
+- Number if provincess
+- couse schedule I , II
+- Is Graph bipartite

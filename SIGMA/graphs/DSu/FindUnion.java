@@ -1,3 +1,4 @@
+package graphs.DSu;
 public class FindUnion {
     private static int n = 7;
     private static int par[] = new int[n];

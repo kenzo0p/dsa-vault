@@ -5,7 +5,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-//leetcode 547
+//leetcode 547\
+
+/*
+ * 
+ * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+
+A province is a group of directly or indirectly connected cities and no other cities outside of the group.
+
+You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+
+Return the total number of provinces.
+ */
 
 /*
  * Explaination
@@ -89,20 +100,18 @@ public class NumberOfProvinces {
         return count;
     }
 
+    // using bfs
 
-
-    //using bfs
-
-    private void bfs(List<List<Integer>>adj , int u , boolean vis[]){
-        Queue<Integer>q = new LinkedList<>();
+    private void bfs(List<List<Integer>> adj, int u, boolean vis[]) {
+        Queue<Integer> q = new LinkedList<>();
         q.add(u);
         vis[u] = true;
 
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             int curr = q.remove();
-            for(int v : adj.get(curr)){
-                if(!vis[v]){
-                    bfs(adj , v  , vis);
+            for (int v : adj.get(curr)) {
+                if (!vis[v]) {
+                    bfs(adj, v, vis);
                 }
             }
         }
@@ -135,7 +144,7 @@ public class NumberOfProvinces {
         return count;
     }
 
-    //another method using bfs not another just by not creating adj list
+    // another method using bfs not another just by not creating adj list
 
     private int n;
 
@@ -146,7 +155,7 @@ public class NumberOfProvinces {
 
         while (!q.isEmpty()) {
             int curr = q.remove();
-            //neighbours
+            // neighbours
             for (int v = 0; v < n; v++) {
                 if (!vis[v] && isConnected[u][v] == 1 && u != v) {
                     bfs(isConnected, v, vis);
@@ -168,6 +177,7 @@ public class NumberOfProvinces {
 
         return count;
     }
+
     public static void main(String[] args) {
 
     }

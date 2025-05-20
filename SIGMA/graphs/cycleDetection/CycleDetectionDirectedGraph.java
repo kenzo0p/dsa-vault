@@ -56,7 +56,7 @@ public class CycleDetectionDirectedGraph {
 
 
     //gfg soln
-
+    // 0->1<-2 
     private boolean isCycleDfs(List<List<Integer>>adj , int u , boolean[]vis , boolean[]stack){
         vis[u] = true; 
         stack[u] = true; 

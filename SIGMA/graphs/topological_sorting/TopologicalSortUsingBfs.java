@@ -108,7 +108,7 @@ public class TopologicalSortUsingBfs {
         }
         
         
-        //step -> 2 fill the queue jiski indeg 0  hogi
+        //step -> 2 fill the queue jiski indeg 0  hogi uska index
         Queue<Integer>q = new LinkedList<>();
         for(int i = 0;i<V;i++){
             if(indeg[i] == 0){
@@ -119,7 +119,7 @@ public class TopologicalSortUsingBfs {
         
         //step -> 3 simple bfs
         while(!q.isEmpty()){
-            int u =  q.remove();
+            int u =  q.poll();
             result.add(u);
             for(int v : adj.get(u)){ //neighbours
                 indeg[v]--;

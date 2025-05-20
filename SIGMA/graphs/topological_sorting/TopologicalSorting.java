@@ -89,6 +89,8 @@ public class TopologicalSorting {
             adj.add(new ArrayList<>());
         }
 
+
+        //directed grpah
         for (int edge[] : edges) {
             int from = edge[0];
             int to = edge[1];

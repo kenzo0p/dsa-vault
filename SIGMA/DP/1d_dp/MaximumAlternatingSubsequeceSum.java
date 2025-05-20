@@ -1,4 +1,7 @@
 //leetcode 1911
+
+import java.util.Arrays;
+
 public class MaximumAlternatingSubsequeceSum {
     /*
      * //TODO: make the tree diagram one more time for clearity Google  ,amazon , meta
@@ -29,7 +32,7 @@ public class MaximumAlternatingSubsequeceSum {
 
         long skip = solve(idx + 1, flag, nums);
         long val = nums[idx];
-        if (flag == false) { //odd index -
+        if (flag == false) { //odd index -  second time it will be od index
             val = -val;
         }
 
@@ -51,8 +54,9 @@ public class MaximumAlternatingSubsequeceSum {
         long t[][] = new long[n + 1][2];
         for (int i = 1; i < n + 1; i++) {
             // even length subseq 
+            //evevn length ka kb banega pichale wala odd raha hoga + - + - thats why - nums[i-1]
             t[i][0] = Math.max(t[i - 1][1] - nums[i - 1], t[i - 1][0]);
-            // odd
+            // odd + - + thats why + nums[i-1]
             t[i][1] = Math.max(t[i - 1][0] + nums[i - 1], t[i - 1][1]);
         }
         return Math.max(t[n][0], t[n][1]);

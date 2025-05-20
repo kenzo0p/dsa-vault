@@ -4,6 +4,7 @@ import java.util.*;
 
 public class GraphBiPartite {
 
+
     // odd length cycle is not bipartitte
     // note* => if graph doesnt have cycles then its by default a bipartite only
     // even length cycle are bipartite
