@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class BuildArrayWhereYouCanFindTheMaximumExactlyKComparisons {
 
     /*
-     * leetco de 1420
+     * leetcode 1420
      * 
      * 
      */

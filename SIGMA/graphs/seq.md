@@ -1,4 +1,4 @@
-- BFS 
+- BFS -
 - cycle detection bfs dfs directed and undirected graph
 - TOPOLOGICAL SORT
 - Topologocal sort using dfs (pehele mere bache fir mein)
@@ -7,3 +7,4 @@
 - Number if provincess
 - couse schedule I , II
 - Is Graph bipartite
+- union find

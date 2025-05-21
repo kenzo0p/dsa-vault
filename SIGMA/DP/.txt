@@ -5,6 +5,7 @@ MAXIMUM ALTERNATING SUBSEQ SUM
 LONGEST INCREASING SUBSEQ
 MAXIMUM LENGTH OF PAIR CHAIN (same as lis)
 LOngest string chain (same as lis)
+Build Array Where You Can Find The Maximum Exactly K Comparisons
 
 
 

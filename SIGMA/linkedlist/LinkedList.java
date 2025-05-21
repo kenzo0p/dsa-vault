@@ -1,5 +1,7 @@
 package linkedlist;
 
+import linkedlist.DeletionOfANodeInALinkedList.ListNode;
+
 public class LinkedList {
     public static class Node {
         int data;
@@ -137,7 +139,7 @@ public class LinkedList {
         // prev : i = size-2
         Node prev = head;
         for (int i = 0; i < size - 2; i++) {
-            prev = prev.next; 
+            prev = prev.next;
         }
         int val = prev.next.data;// tail.data
         prev.next = null;
@@ -281,6 +283,56 @@ public class LinkedList {
         return false; // cycle doesnt exist
     }
 
+    public ListNode detectCycle(ListNode head) { // and return prev
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+
+                slow = head;
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+
+                return slow;
+            }
+
+        }
+
+        return null;
+
+    }
+
+    private static int findLen(Node slow, Node fast) {
+
+        int len = 0;
+
+        fast = fast.next;
+        while (fast != slow) {
+            len++;
+            fast = fast.next;
+        }
+
+        return len;
+    }
+
+    public static int lengthOfTheLoop(Node head) { // length of the cycle in ll
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return findLen(slow, fast);
+            }
+        }
+
+        return 0;
+    }
+
     public static void removeCycle() {
         // detect cycle
         Node slow = head;
@@ -364,7 +416,7 @@ public class LinkedList {
         return merge(newLeft, newRight);
     }
 
-    //IMPORTANT:zig zig linked list
+    // IMPORTANT:zig zig linked list
     public void zigZagLL() {
         // find middle
         Node slow = head;
@@ -385,7 +437,7 @@ public class LinkedList {
             prev = curr;
             curr = next;
         }
-        
+
         // alt merge - zig-zag merge
         Node left = head;
         Node right = prev;
