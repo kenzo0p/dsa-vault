@@ -102,7 +102,7 @@ public class MaximumBalancedSubseqSum {
         return maxSum > maxEl ? maxSum : maxEl;
     }
 
-    // go on leetcode dry run 4,8,5,8
+    // go on leetcode dry run 4,8,5, 8 -> 4 , 7 , 3, 5 
     // Approach-3 (Using Optimal LIS - Similar to Patience Sorting) - Accepted
     // Time : O(nlogn)
     public long maxBalancedSubsequenceSum(int[] nums) {
