@@ -1,3 +1,4 @@
+package kruskalsAlgo;
 import java.util.*;
 
 public class KruskalsAlgo { // 0(v+eloge)

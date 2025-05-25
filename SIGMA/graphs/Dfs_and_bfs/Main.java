@@ -1,4 +1,4 @@
-package graphs;
+package Dfs_and_bfs;
 
 import java.util.*;
 

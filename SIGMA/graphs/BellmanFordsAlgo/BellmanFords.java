@@ -1,3 +1,4 @@
+package BellmanFordsAlgo;
 import java.util.ArrayList;
 //TODO : Watch again bellman fords and dijkstras algo 
 public class BellmanFords {

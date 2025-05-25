@@ -208,7 +208,7 @@ public class LinkedList {
             sz++;
         }
         // kaaam
-        if (n == sz) { // here we are deleting fromt last so think that when size == n then its a first
+        if (n == sz) { // here we are deleting from last so think that when size == n then its a first
                        // node
             head = head.next;// remove first operation
             return; // head.next in contest leetcode
@@ -219,7 +219,7 @@ public class LinkedList {
         int idxToFind = sz - n;// find the exact node from first
         Node prev = head;
         while (i < idxToFind) { // for input 1->2->3->4->5->6->7 n=3 we have to remove the 5 then sz-n= 7-3 = 4
-                                // i.e 4 os its next points to next.next 6
+                                // i.e 4 is its next points to next.next 6
             prev = prev.next;
             i++;
         }
@@ -368,7 +368,7 @@ public class LinkedList {
         Node fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
-            fast = fast.next;
+            fast = fast.next.next;
         }
         return slow;
     }

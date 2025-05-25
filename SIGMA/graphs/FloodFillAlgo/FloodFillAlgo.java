@@ -1,3 +1,4 @@
+package FloodFillAlgo;
 public class FloodFillAlgo { //0(m*n)
 
     public void helper(int [][]image , int sr , int sc  , int color , boolean vis[][] , int orgCol){

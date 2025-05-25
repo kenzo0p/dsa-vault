@@ -1,5 +1,6 @@
 package SIGMA.DP.longestCommonSequence;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -12,7 +13,7 @@ public class LongestIincreasingSubSequence {
      * Given an integer array nums, return the length of the longest strictly
      * increasing subsequence.
      * 
-     * Example 1: 
+     * Example 1:
      * Input: nums = [10,9,2,5,3,7,101,18]
      * Output: 4
      * Explanation: The longest increasing subsequence is [2,3,7,101], therefore the
@@ -69,25 +70,54 @@ public class LongestIincreasingSubSequence {
 
         return maxLis;
     }
-    
 
+    // using patience sorting
+    // binary seach lower_bound
+    /*
+     * 
+     * 
+     * 
+     * 
+     */
+    public static int lowerBound(ArrayList<Integer> sorted, int target) {
+        int left = 0;
+        int right = sorted.size();
+        int result = sorted.size();
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (sorted.get(mid) < target) {
+                left = mid + 1;
+            } else {
+                result = mid;
+                right = mid;
+            }
+        }
 
+        return result;
+    }
 
+    public static int lis(int nums[]) {
+        int n = nums.length;
+        ArrayList<Integer> sorted = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            /*
+             * Why lower bound?
+             * We want an increasing subsequence, and hence
+             * we want to eliminate the duplicates as well.
+             * lower_bound returns the index of "next greater or equal to."
+             */
 
+            int index = lowerBound(sorted, nums[i]);
+            if (index == sorted.size()) {
+                sorted.add(nums[i]);
+            } else {
+                sorted.set(index, nums[i]);
+            }
 
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-    
+        return sorted.size();
+    }
 
     public static int lcs(int arr1[], int arr2[]) {
         int n = arr1.length;
@@ -116,7 +146,11 @@ public class LongestIincreasingSubSequence {
 
     }
 
-    //another method
+
+
+
+    
+    // another method
 
     public static int longestIncreasingSubSequence(int nums[]) {
         HashSet<Integer> set = new HashSet<>();
@@ -139,6 +173,6 @@ public class LongestIincreasingSubSequence {
     public static void main(String[] args) {
         int arr[] = { 50, 3, 10, 7, 40, 80 };
         System.out.println(longestIncreasingSubSequence(arr));
- 
+
     }
 }

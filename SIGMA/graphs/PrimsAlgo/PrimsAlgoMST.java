@@ -1,3 +1,4 @@
+package PrimsAlgo;
 import java.util.*;
 
 public class PrimsAlgoMST {
