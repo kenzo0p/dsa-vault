@@ -7,6 +7,8 @@ MAXIMUM LENGTH OF PAIR CHAIN (same as lis)
 LOngest string chain (same as lis)
 Build Array Where You Can Find The Maximum Exactly K Comparisons
 MAXIMUM balanaced SUBSEq sum
+Largest divisible subset
+longest commmon subseq
 
 
 

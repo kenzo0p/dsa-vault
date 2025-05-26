@@ -29,7 +29,6 @@ public class SatisfyingOfEquality {
     }
 
     public boolean equationPossible(String[] equations) {
-        int V = equations.length;
         int[] parent = new int[26];
         int rank[] = new int[26];
         for (int i = 0; i < 26; i++) {

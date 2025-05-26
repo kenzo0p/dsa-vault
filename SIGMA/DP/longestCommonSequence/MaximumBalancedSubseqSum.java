@@ -102,34 +102,63 @@ public class MaximumBalancedSubseqSum {
         return maxSum > maxEl ? maxSum : maxEl;
     }
 
-    // go on leetcode dry run 4,8,5, 8 -> 4 , 7 , 3, 5 
+    // go on leetcode dry run 4,8,5, 8 -> 4 , 7 , 3, 5
     // Approach-3 (Using Optimal LIS - Similar to Patience Sorting) - Accepted
     // Time : O(nlogn)
     public long maxBalancedSubsequenceSum(int[] nums) {
         int n = nums.length;
         int[] arr = new int[n];
+
+        // Step 1: Transform nums[i] -> nums[i] - i and store in arr[]
+        // This transformation helps to maintain the "balanced" condition as per the
+        // problem requirement.
         for (int i = 0; i < n; i++) {
             arr[i] = nums[i] - i;
         }
-        TreeMap<Integer, Long> map = new TreeMap<>();
+
+        TreeMap<Integer, Long> map = new TreeMap<>(); // Stores {arr[i] -> max subsequence sum ending with arr[i]}
         long ans = Integer.MIN_VALUE;
+
+        // Dry Run Input: nums = [4, 8, 5, 8]
+        // arr = [4, 7, 3, 5] (i.e. [4-0, 8-1, 5-2, 8-3])
+
         for (int i = 0; i < n; i++) {
             if (nums[i] <= 0) {
+
+                // If current number is non-positive, only consider it alone
                 ans = Math.max(ans, nums[i]);
             } else {
+                // Start a new sum with just the current number
                 long temp = nums[i];
+
+                // Try to extend previous best sum if any key <= arr[i] exists
                 if (map.floorKey(arr[i]) != null) {
+                    // Add the best sum we can get before this element
                     temp += map.get(map.floorKey(arr[i]));
                 }
+
+                // Remove all future keys >= arr[i] that have a worse sum
+                // (we only want to keep the best options in the TreeMap)
                 while (map.ceilingKey(arr[i]) != null && map.get(map.ceilingKey(arr[i])) < temp) {
                     map.remove(map.ceilingKey(arr[i]));
                 }
+
+                // If this current sum is better than existing for arr[i], update it
                 if (map.floorKey(arr[i]) == null || map.get(map.floorKey(arr[i])) < temp) {
                     map.put(arr[i], temp);
                 }
+
+                // Update global max
                 ans = Math.max(ans, temp);
             }
+
+            // === Dry Run Debug Output ===
+            System.out.println("Step " + i + ": nums[i] = " + nums[i]);
+            System.out.println("        arr[i] = " + arr[i]);
+            System.out.println("        TreeMap = " + map);
+            System.out.println("        Current max sum = " + ans);
         }
+
         return ans;
     }
 

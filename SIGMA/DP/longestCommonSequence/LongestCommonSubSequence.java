@@ -2,6 +2,7 @@ package DP.longestCommonSequence;
 
 public class LongestCommonSubSequence {
     // using recursion
+    //2^m * 2^n 
     public static int rec(String str1, String str2, int n, int m) {
         if (n == 0 || m == 0) {
             return 0;
@@ -39,7 +40,7 @@ public class LongestCommonSubSequence {
             return 0;
         }
 
-        // there is no need in initi in java (0 its already 0) just for concept clearing
+        // there is no need in initi in java ( its already 0) just for concept clearing
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (i == 0 || j == 0) {
