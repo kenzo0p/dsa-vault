@@ -1,10 +1,10 @@
 package DSu;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 public class CycleDetectionUsingDSU {
-
+    //google , amazon
     public static int find(int i, int[] parent) {
         if (i == parent[i]) {
             return i;
@@ -50,7 +50,7 @@ public class CycleDetectionUsingDSU {
             if (parent_u == parent_v) {
                 return true; // cycle found
             }
-
+            //agar equal nahi hain to union kr denge
             union(u, v, parent, rank);
         }
 

@@ -7,10 +7,6 @@ import java.util.List;
 public class LargestDivisibleSubset {
     /*
      * 368. Largest Divisible Subset
-     * Solved
-     * Medium
-     * Topics
-     * Companies
      * Given a set of distinct positive integers nums, return the largest subset
      * answer such that every pair (answer[i], answer[j]) of elements in this subset
      * satisfies:
@@ -76,7 +72,7 @@ public class LargestDivisibleSubset {
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (nums[i] % nums[j] == 0) {
-                    if (t[i] < t[j] + 1) {
+                    if (t[i] < t[j] + 1) { // if its greter then add it
                         t[i] = t[j] + 1;
                         prev_idx[i] = j;
                     }

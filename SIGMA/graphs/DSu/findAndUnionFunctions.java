@@ -2,7 +2,7 @@ package graphs.DSu;
 
 import java.util.ArrayList;
 
-public class Main {
+public class findAndUnionFunctions {
 
     // Notes find function and union
     // DSU BY path compression and rank next vid

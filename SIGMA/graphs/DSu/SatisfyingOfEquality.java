@@ -50,7 +50,7 @@ public class SatisfyingOfEquality {
 
                 int parent_first = find(first - 'a', parent);
                 int parent_second = find(second -'a', parent);
-
+                // !=  case fails here if parents are equal
                 if (parent_first == parent_second) {
                     return false;
                 }

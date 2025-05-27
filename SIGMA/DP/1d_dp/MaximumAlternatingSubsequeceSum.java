@@ -45,7 +45,7 @@ public class MaximumAlternatingSubsequeceSum {
         for (long[] row : t) {
             Arrays.fill(row, -1);
         }
-        return solve(0, true, nums); // 0 is even true : +
+        return solve(0, true, nums); // 1 is even true : +
     }
 
     // bottom up

@@ -7,5 +7,7 @@
 - Number if provincess
 - couse schedule I , II
 - Is Graph bipartite
-- union find (dsu)
+- union find (dsu) -> problems
 - Detect cycle using dsu (union find)
+- Satisfying of equality
+- Number of Operations to Make Network Connected
