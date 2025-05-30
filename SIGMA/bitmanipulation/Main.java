@@ -120,6 +120,5 @@ public class Main {
         // System.out.println(6>>1);//shift but two placess to right
         System.out.println(toggleIthBit(44, 4));
         // TODO: modular exponentiation
-
     }
 }

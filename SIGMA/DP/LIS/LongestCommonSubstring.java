@@ -1,4 +1,4 @@
-package SIGMA.DP.longestCommonSequence;
+package LIS;
 
 public class LongestCommonSubstring {
     // o(n*m)

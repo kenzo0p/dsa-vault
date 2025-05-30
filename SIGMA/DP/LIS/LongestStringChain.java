@@ -1,4 +1,4 @@
-package longestCommonSequence;
+package LIS;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package DP.longestCommonSequence;
+package lcs;
 
 public class LongestCommonSubSequence {
 

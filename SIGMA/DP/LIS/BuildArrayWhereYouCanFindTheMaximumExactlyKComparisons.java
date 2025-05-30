@@ -1,4 +1,4 @@
-package DP.longestCommonSequence;
+package LIS;
 
 import java.util.Arrays;
 

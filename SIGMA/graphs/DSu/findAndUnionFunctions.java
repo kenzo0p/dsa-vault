@@ -28,6 +28,7 @@ public class findAndUnionFunctions {
             parent[x_parent] = y_parent;
         } else {// if rank is same then kisiko bhi papa bana dooo
             parent[x_parent] = y_parent;
+            rank[y_parent]++;
         }
     }
 

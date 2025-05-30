@@ -1,5 +1,8 @@
 package dijkstrasAlgo;
+
 import java.util.*;
+
+import dijkstrasAlgo.DijkstrasAlgo.Pair;
 
 public class DijkstrasAlgo {
     static class Edge {
@@ -62,7 +65,7 @@ public class DijkstrasAlgo {
         pq.add(new Pair(src, 0));
         // loop for bfs
         while (!pq.isEmpty()) {
-            Pair curr = pq.remove();
+            Pair curr = pq.poll();
             if (!vis[curr.n]) {
                 vis[curr.n] = true;
 
@@ -86,6 +89,106 @@ public class DijkstrasAlgo {
         }
         System.out.println();
     }
+
+    static class Pair2 {
+        int node, dist;
+
+        Pair2(int node, int dist) {
+            this.node = node;
+            this.dist = dist;
+        }
+    }
+
+    public static void dijkstra(List<List<Pair2>> adj, int V, int source) {
+        int[] dist = new int[V];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[source] = 0;
+
+        PriorityQueue<Pair2> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.dist));
+        pq.add(new Pair2(source, 0));
+
+        while (!pq.isEmpty()) {
+            Pair2 current = pq.poll();
+            int u = current.node;
+            int d = current.dist;
+
+            for (Pair2 neighbor : adj.get(u)) {
+                int v = neighbor.node;
+                int weight = neighbor.dist;
+
+                if (d + weight < dist[v]) {
+                    dist[v] = d + weight;
+                    pq.add(new Pair2(v, dist[v]));
+                }
+            }
+        }
+
+        // Print result
+        for (int i = 0; i < V; i++) {
+            System.out.println("Distance from " + source + " to " + i + " is " + dist[i]);
+        }
+    }
+
+    // using sets
+
+    static class Pair implements Comparable<Pair> {
+        int node, dist;
+
+        Pair(int node, int dist) {
+            this.node = node;
+            this.dist = dist;
+        }
+
+        public int compareTo(Pair other) {
+            if (this.dist == other.dist)
+                return this.node - other.node;
+            return this.dist - other.dist;
+        }
+    }
+
+    public static void dijkstra(List<List<Pair>> adj, int V, int source) {
+        int[] dist = new int[V];
+        Arrays.fill(dist, Integer.MAX_VALUE); // Step 1: set all distances to ∞
+        dist[source] = 0; // Distance from source to itself is 0
+
+        TreeSet<Pair> set = new TreeSet<>();
+        set.add(new Pair(source, 0)); // Start from source node (0, distance 0)
+
+        // Step 2: Loop while there are nodes to visit
+        while (!set.isEmpty()) {
+            Pair current = set.pollFirst(); // Get node with smallest distance
+            int u = current.node; // Current node u
+
+            // Step 3: Visit all neighbors of node u
+            for (Pair neighbor : adj.get(u)) {
+                int v = neighbor.node;
+                int weight = neighbor.dist;
+
+                // Relaxation step: if shorter path found, update it
+                if (dist[u] + weight < dist[v]) {
+                    set.remove(new Pair(v, dist[v])); // remove old entry if any
+                    dist[v] = dist[u] + weight; // update with smaller distance
+                    set.add(new Pair(v, dist[v])); // add updated distance
+                }
+            }
+        }
+
+        // Print result
+        for (int i = 0; i < V; i++) {
+            System.out.println("Distance from " + source + " to " + i + " is " + dist[i]);
+        }
+    }
+
+    // Why not Priority queue
+    /*
+     * 
+     * Time complexity ->
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
 
     public static void main(String[] args) {
         int v = 6;

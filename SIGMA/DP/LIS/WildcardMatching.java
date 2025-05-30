@@ -1,4 +1,4 @@
-package DP.longestCommonSequence;
+package LIS;
 
 public class WildcardMatching {
     //O(n*mcd)
