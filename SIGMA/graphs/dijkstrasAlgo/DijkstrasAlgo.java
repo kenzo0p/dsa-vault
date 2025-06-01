@@ -182,12 +182,7 @@ public class DijkstrasAlgo {
     // Why not Priority queue
     /*
      * 
-     * Time complexity ->
-     * 
-     * 
-     * 
-     * 
-     * 
+     * Time complexity ->  V * (log(v)  + elog(v))   || Vid no 26
      */
 
     public static void main(String[] args) {
