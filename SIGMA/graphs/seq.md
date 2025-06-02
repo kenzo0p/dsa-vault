@@ -7,9 +7,12 @@
 - Number if provincess
 - couse schedule I , II
 - Is Graph bipartite
-- union find (dsu) -> problems
+
+# union find (dsu) -> problems
 - Detect cycle using dsu (union find)
 - Satisfying of equality
 - Number of Operations to Make Network Connected
 - Count Unreachable Pairs Of Nodes In An Undirected Graph
-- Dijkstras algo
+
+# Dijkstras algo
+- ShortestPathInWeightesGraph.
