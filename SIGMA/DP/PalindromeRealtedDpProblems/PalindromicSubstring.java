@@ -84,9 +84,9 @@ public class PalindromicSubstring {
                 int j = i + L - 1;
                 if (i == j) {
                     t[i][j] = true;
-                } else if (i + 1 == j) {
+                } else if (i + 1 == j) { // example -> i = 3,j = 4 then its two length substring
                     t[i][j] = (s.charAt(i) == s.charAt(j));
-                } else {
+                } else { //vid 26 min ex -> - (i+l)- - (j-1)- -  
                     t[i][j] = (s.charAt(i) == s.charAt(j) && t[i + 1][j - 1]);
                 }
 
