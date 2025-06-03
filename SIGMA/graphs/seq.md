@@ -16,3 +16,4 @@
 
 # Dijkstras algo
 - ShortestPathInWeightesGraph.
+- netwrok delay time
