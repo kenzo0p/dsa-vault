@@ -17,3 +17,5 @@
 # Dijkstras algo
 - ShortestPathInWeightesGraph.
 - netwrok delay time
+- Shortest Path in Binary Matrix
+- Path With Minimum Effort | Leetcode-1631 | Dijkstra in 2-D Matrix

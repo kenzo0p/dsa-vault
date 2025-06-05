@@ -62,6 +62,14 @@ public class MaximumAlternatingSubsequeceSum {
         return Math.max(t[n][0], t[n][1]);
     }
 
+     public long maxAlternatingSum(int[] nums) {
+        long ans = nums[0];
+        for(int i = 1; i < nums.length; i++) {
+            ans += Math.max(nums[i] - nums[i - 1], 0);
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
 
     }
