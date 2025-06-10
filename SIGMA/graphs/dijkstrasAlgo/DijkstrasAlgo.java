@@ -99,6 +99,7 @@ public class DijkstrasAlgo {
         }
     }
 
+    //o(ELogV)
     public static void dijkstra(List<List<Pair2>> adj, int V, int source) {
         int[] dist = new int[V];
         Arrays.fill(dist, Integer.MAX_VALUE);

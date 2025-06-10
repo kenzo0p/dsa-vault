@@ -1,5 +1,8 @@
 package BellmanFordsAlgo;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+
 //TODO : Watch again bellman fords and dijkstras algo 
 public class BellmanFords {
     static class Edge {
@@ -32,14 +35,14 @@ public class BellmanFords {
 
     }
 
-    public static void bellmanFord(ArrayList<Edge> graph[], int src) { //o(VE)
+    public static void bellmanFord(ArrayList<Edge> graph[], int src) { // o(VE)
         int dist[] = new int[graph.length];
         for (int i = 0; i < dist.length; i++) {
             if (i != src) {
                 dist[i] = Integer.MAX_VALUE;
             }
         }
-        // algo  - o(v)
+        // algo - o(v)
         int V = graph.length;
         for (int i = 0; i < V - 1; i++) {
             // edges - o(E)
@@ -58,16 +61,50 @@ public class BellmanFords {
 
         }
 
-        for(int i = 0;i<dist.length;i++){
+        for (int i = 0; i < dist.length; i++) {
             System.out.print(dist[i] + " ");
         }
         System.out.println();
     }
 
+    // gfg soln and also neg cycle just do one more time relaxation
+    // tc => o(E*V)
+    public int[] bellmanFord(int V, int[][] edges, int src) {
+        // code here
+        int result[] = new int[V];
+        int INF = (int) Math.pow(10, 8);
+        Arrays.fill(result, INF);
+        result[src] = 0;
+        for (int count = 1; count <= V - 1; count++) {
+
+            for (int edge[] : edges) {
+                int u = edge[0];
+                int v = edge[1];
+                int wt = edge[2];
+                if (result[u] != INF && result[u] + wt < result[v]) {
+                    result[v] = result[u] + wt;
+                }
+            }
+        }
+
+        // Now detect neg cycle
+
+        for (int edge[] : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            if (result[u] != INF && result[u] + wt < result[v]) {
+                return new int[] { -1 };
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         int V = 5;
         @SuppressWarnings("unchecked")
-        ArrayList<Edge>graph[] = new ArrayList[V];
+        ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
         bellmanFord(graph, 0);
     }
