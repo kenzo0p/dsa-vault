@@ -1,10 +1,10 @@
 public class ReverseStringInAWord {
-    public String reverseWords(String s){
-        String [] words = s.trim().split("\\s+");
+    public String reverseWords(String s) {
+        String[] words = s.trim().split("\\s+");
         StringBuilder rev = new StringBuilder();
-        for(int i = words.length -1;i>=0;i--){
+        for (int i = words.length - 1; i >= 0; i--) {
             rev.append(words[i]);
-            if(i!=0){
+            if (i != 0) {
                 rev.append(" ");
             }
         }
@@ -12,9 +12,7 @@ public class ReverseStringInAWord {
         return rev.toString();
     }
 
-
-
-       public String reverseWords(String s) {
+    public String reverseWords(String s) {
         StringBuilder sb = new StringBuilder();
 
         int i = s.length() - 1;
@@ -32,4 +30,47 @@ public class ReverseStringInAWord {
         }
         return sb.toString();
     }
+
+    public String reverseWords(String s) {
+        // Remove leading and trailing spaces
+        s = s.trim();
+
+        // Convert to char array and reverse whole string
+        char[] arr = new StringBuilder(s).reverse().toString().toCharArray();
+        int n = arr.length;
+
+        int i = 0, l = 0, r = 0;
+
+        while (i < n) {
+            // Skip spaces
+            if (arr[i] == ' ') {
+                i++;
+                continue;
+            }
+
+            // Copy word to correct position
+            if (r != 0)
+                arr[r++] = ' '; // add space between words (not at start)
+            l = r;
+
+            // copy and move i
+            while (i < n && arr[i] != ' ') {
+                arr[r++] = arr[i++];
+            }
+
+            // reverse the word in place
+            reverse(arr, l, r - 1);
+        }
+
+        return new String(arr, 0, r); // final string with correct length
+    }
+
+    private void reverse(char[] arr, int left, int right) {
+        while (left < right) {
+            char temp = arr[left];
+            arr[left++] = arr[right];
+            arr[right--] = temp;
+        }
+    }
+
 }
