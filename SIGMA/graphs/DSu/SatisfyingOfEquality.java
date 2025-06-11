@@ -33,6 +33,7 @@ public class SatisfyingOfEquality {
         int rank[] = new int[26];
         for (int i = 0; i < 26; i++) {
             parent[i] = i;
+            rank[i] = 0;
         }
 
         // first do union of equal chars

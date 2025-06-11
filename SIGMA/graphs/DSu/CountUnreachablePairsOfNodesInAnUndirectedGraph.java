@@ -61,6 +61,7 @@ public class CountUnreachablePairsOfNodesInAnUndirectedGraph {
 
         for(int i = 0;i<n;i++){
             parent[i] = i;
+            rank[i] = 0;
         }
 
         //step 2 -> make the components
