@@ -1,9 +1,16 @@
-package SIGMA.graphs.Dfs_and_bfs;
+public class NumberOfIslands {
 
-public class NumberOfIlands {
-
-
-    //using dfs
+    /*
+     * 200. Number of Islands
+     * Given an m x n 2D binary grid grid which represents a map of '1's (land) and
+     * '0's (water), return the number of islands.
+     * 
+     * An island is surrounded by water and is formed by connecting adjacent lands
+     * horizontally or vertically. You may assume all four edges of the grid are all
+     * surrounded by water.
+     * 
+     */
+    // using dfs
     private int m;
     private int n;
 
@@ -36,10 +43,10 @@ public class NumberOfIlands {
         }
 
         return islands;
- 
+
     }
-    
-    //using bfs
+
+    // using bfs
     public int numIslands(char[][] grid) {
         m = grid.length;
         n = grid[0].length;
@@ -54,8 +61,7 @@ public class NumberOfIlands {
         }
 
         return islands;
- 
+
     }
-    
 
 }

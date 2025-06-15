@@ -19,6 +19,7 @@
 - netwrok delay time
 - Shortest Path in Binary Matrix
 - Path With Minimum Effort | Leetcode-1631 | Dijkstra in 2-D Matrix
+- Find Minimum Time to Reach Last Room I
 
 # Bellman-Ford Algorithm
 - Bellman-Ford Algorithm | Full Detail | Microsoft, Amazon

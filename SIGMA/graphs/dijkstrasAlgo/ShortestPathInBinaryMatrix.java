@@ -18,6 +18,8 @@ public class ShortestPathInBinaryMatrix {
     public int shortestPathBinaryMatrix(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
+
+        //it should visted to travel 
         if (m == 0 || n == 0 || grid[0][0] != 0) {
             return -1;
         }

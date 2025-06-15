@@ -55,3 +55,6 @@ public class NetworkDelayTime {
 
     }
 }
+
+
+//Actually question is correct you are getting it wrong, question states return the minimum time it takes to reach all the nodes and it means signal is travelling simultaneously to every path so u just have to return the max time it is taking to reach any one node becuase during that time the signal will reach to other nodes also since their travelling time will be less than the max one. Hope it helps!

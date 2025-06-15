@@ -1,7 +1,8 @@
 package FloydsWarshallAlgo;
 
 public class Main {
-    //in this algo we have to go through all nodes and need to calculate the dist from every node
+    // in this algo we have to go through all nodes and need to calculate the dist
+    // from every node
     public void floydWarshall(int[][] dist) {
         // Code here
         int V = dist.length;
