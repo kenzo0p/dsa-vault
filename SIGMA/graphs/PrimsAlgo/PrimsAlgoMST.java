@@ -1,4 +1,5 @@
 package PrimsAlgo;
+
 import java.util.*;
 
 public class PrimsAlgoMST {
@@ -58,7 +59,7 @@ public class PrimsAlgoMST {
             if (!vis[curr.v]) {
                 vis[curr.v] = true;
                 finalCost += curr.cost;
-                //add the neighbors in pq
+                // add the neighbors in pq
                 for (int i = 0; i < graph[curr.v].size(); i++) {
                     Edge e = graph[curr.v].get(i);
                     pq.add(new Pair(e.dest, e.wt));
@@ -66,6 +67,47 @@ public class PrimsAlgoMST {
             }
         }
         System.out.println("Final cost of mst is : " + finalCost);
+
+    }
+
+    // gfg solution
+    //Tc -> 0(e*2*logE) -> o(eloge)
+    // int this question we just want sum not parent so onlyad node and weight in pq
+    static int spanningTree(int V, int E, List<List<int[]>> adj) {
+        // Code Here.
+
+        // min heap
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        pq.offer(new int[] { 0, 0 }); // weight , node
+        boolean inMst[] = new boolean[V];
+        int sum = 0;
+        while (!pq.isEmpty()) {
+            int curr[] = pq.poll();
+
+            int wt = curr[0];
+            int node = curr[1];
+
+            //if the node is already visited no need to ge there because its undirected graph remember we cant go back that is already  visited
+            if (inMst[node] == true) {
+                continue;
+            }
+
+            inMst[node] = true; // added to our minimum spannng tree
+            sum += wt;
+
+            for (int neigh[] : adj.get(node)) {
+                int v = neigh[0];
+                int wt_v = neigh[1];
+
+                if (inMst[v] == false) {
+                    pq.offer(new int[] { wt_v, v });
+                }
+
+            }
+
+        }
+
+        return sum;
 
     }
 

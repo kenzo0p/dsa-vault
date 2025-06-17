@@ -1,7 +1,9 @@
 package kruskalsAlgo;
 import java.util.*;
 
-public class KruskalsAlgo { // 0(v+eloge)
+import kruskalsAlgo.KruskalsAlgo.Edge;
+
+// 0(v+eloge)
     static class Edge implements Comparable<Edge> {
         int src;
         int dest;
@@ -74,6 +76,81 @@ public class KruskalsAlgo { // 0(v+eloge)
         }
         return mstCost;
     }
+
+
+
+
+    //gfg
+    private int[] parent;
+    private int[] rank;
+
+    // DSU: Find with path compression
+    int find(int x) {
+        if (x == parent[x]) return x;
+        return parent[x] = find(parent[x]);
+    }
+
+    // DSU: Union by rank
+    void union(int x, int y) {
+        int px = find(x);
+        int py = find(y);
+
+        if (px == py) return;
+
+        if (rank[px] > rank[py]) {
+            parent[py] = px;
+        } else if (rank[px] < rank[py]) {
+            parent[px] = py;
+        } else {
+            parent[py] = px;
+            rank[px]++;
+        }
+    }
+
+    // Kruskal's algorithm implementation
+    int kruskal(List<int[]> edges) {
+        int sum = 0;
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+
+            if (find(u) != find(v)) {
+                union(u, v);
+                sum += wt;
+            }
+        }
+
+        return sum;
+    }
+
+    // Main function to build edge list and apply Kruskal's
+    int spanningTree(int V,int E ,  List<List<int[]>> adj) {
+        parent = new int[V];
+        rank = new int[V];
+        for (int i = 0; i < V; i++) parent[i] = i;
+
+        List<int[]> edges = new ArrayList<>();
+
+        for (int u = 0; u < V; u++) {
+            for (int[] temp : adj.get(u)) {
+                int v = temp[0];
+                int wt = temp[1];
+
+                if (u < v) { // To avoid duplicate edges in undirected graph
+                    edges.add(new int[]{u, v, wt});
+                }
+            }
+        }
+
+        // Sort by weight
+        edges.sort(Comparator.comparingInt(a -> a[2]));
+
+        return kruskal(edges);
+    }
+}
+
 
     public static void main(String[] args) {
         int v = 4;

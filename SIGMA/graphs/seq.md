@@ -25,3 +25,9 @@
 - Bellman-Ford Algorithm | Full Detail | Microsoft, Amazon
 
 # Floyds Warshall Algorithm
+
+
+# Minimum spaning tree
+    ## Prims algo
+    - minimum spanning tree (gfg)
+    - minimum cost to connect all points
