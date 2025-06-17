@@ -4,7 +4,7 @@ package DSu;
 
 
 public class CycleDetectionUsingDSU {
-    //google , amazon
+    //google , amazon *****
     public static int find(int i, int[] parent) {
         if (i == parent[i]) {
             return i;
