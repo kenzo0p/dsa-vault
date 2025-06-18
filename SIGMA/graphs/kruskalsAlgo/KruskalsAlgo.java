@@ -126,7 +126,7 @@ import kruskalsAlgo.KruskalsAlgo.Edge;
     }
 
     // Main function to build edge list and apply Kruskal's
-    int spanningTree(int V,int E ,  List<List<int[]>> adj) {
+   public int spanningTree(int V,int E ,  List<List<int[]>> adj) {
         parent = new int[V];
         rank = new int[V];
         for (int i = 0; i < V; i++) parent[i] = i;

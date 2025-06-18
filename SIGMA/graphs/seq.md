@@ -9,6 +9,7 @@
 - Is Graph bipartite
 
 # union find (dsu) -> problems
+- DSU By size and rank look through it
 - Detect cycle using dsu (union find)
 - Satisfying of equality
 - Number of Operations to Make Network Connected
@@ -31,3 +32,7 @@
     ## Prims algo
     - minimum spanning tree (gfg)
     - minimum cost to connect all points
+
+# Stronggly connected components    
+    ## Kosarajus algo (gfg soln)
+
