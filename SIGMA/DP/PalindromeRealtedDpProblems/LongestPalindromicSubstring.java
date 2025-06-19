@@ -16,6 +16,7 @@ public class LongestPalindromicSubstring {
     }
 
     public String longestPalindrome(String s) {
+        //babad
         int n = s.length();
         int max_len = Integer.MIN_VALUE;
         int sp = 0;
@@ -47,13 +48,13 @@ public class LongestPalindromicSubstring {
         if (s.charAt(i) == s.charAt(j)) {
             boolean check = solve(i + 1, j - 1, s);
             if (check) {
-                t[i][j] = 1;
+                t[i][j] = 1; //true
             } else {
-                t[i][j] = 0;
+                t[i][j] = 0; // false
             }
             return check;
         }
-        t[i][j] = 0;
+        t[i][j] = 0; // otherwise false
         return false;
     }
 
