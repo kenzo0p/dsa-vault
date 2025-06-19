@@ -30,6 +30,7 @@
 
 # Minimum spaning tree
     ## Prims algo
+    ## kruskals algo
     - minimum spanning tree (gfg)
     - minimum cost to connect all points
 

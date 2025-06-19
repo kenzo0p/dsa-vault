@@ -51,7 +51,7 @@ public class KosarajusAlgo {
         
         //step 3 -> call dfs based on stack order
         int countScc = 0;
-        visited = new boolean[V];
+        visited = new boolean[V]; // again init as we have to do dfs on stack
         
         while(!st.isEmpty()){
             int node = st.pop();
