@@ -34,9 +34,9 @@ public class UniquePathsII {
         return solve(0, 0, grid);
     }
     public int uniquePathsWithObstacles(int grid[][]) {
-        int m = grid.length;
-        int n = grid[0].length;
-        int t[][] = new int[m][n];
+        int m = grid.length; 
+        int n = grid[0].length; 
+        int t[][] = new int[m][n]; 
         for (int memo[] : t) {
             Arrays.fill(memo, -1);
         }

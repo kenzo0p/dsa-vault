@@ -37,3 +37,5 @@
 # Stronggly connected components    
     ## Kosarajus algo (gfg soln)
 
+# Euler path and circuit
+ - question from gfg 
