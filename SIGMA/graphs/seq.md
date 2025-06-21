@@ -39,3 +39,4 @@
 
 # Euler path and circuit
  - question from gfg 
+ - Valid arrangement of pairs (Hierholzers algorithm)
