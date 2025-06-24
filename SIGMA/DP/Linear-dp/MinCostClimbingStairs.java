@@ -56,6 +56,7 @@ public class MinCostClimbingStairs {
         }
 
     for(int i = 2;i<n;i++){
+        //Calculate the cost of i when getting the step 1 and 2 also we have add that step cost
             cost[i] = cost[i] + Math.min(cost[i-1] , cost[i-2]);
         }
 
