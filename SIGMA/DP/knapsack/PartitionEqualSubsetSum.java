@@ -1,6 +1,7 @@
 package DP.knapsack;
 
 public class PartitionEqualSubsetSum {
+    //here the thing is that we cant partition the array which is having the sum id odd we only need even so that we can partition total/2 so then half array will give the total/2 and half will total /2
     private boolean rec(int idx, int target, int nums[]) {
         if (target == 0)
             return true;

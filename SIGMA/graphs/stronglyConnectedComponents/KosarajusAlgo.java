@@ -28,7 +28,7 @@ public class KosarajusAlgo {
     // Function to find number of strongly connected components in the graph.
     public int kosaraju(ArrayList<ArrayList<Integer>> adj) {
         // code here
-        // step : 1 Storre order of dfs in stack
+        // step : 1 Store order of dfs in stack
         int V = adj.size();
         Stack<Integer>st = new Stack<>();
         boolean visited[] = new boolean[V];
@@ -65,4 +65,4 @@ public class KosarajusAlgo {
         
     }
 }
-}
+

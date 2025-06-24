@@ -1,4 +1,4 @@
-package PrimsAlgo;
+package minimum_spaning_tree;
 
 import java.util.*;
 

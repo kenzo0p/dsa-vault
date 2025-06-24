@@ -1,4 +1,4 @@
-package kruskalsAlgo;
+package minimum_spaning_tree;
 import java.util.*;
 
 import kruskalsAlgo.KruskalsAlgo.Edge;

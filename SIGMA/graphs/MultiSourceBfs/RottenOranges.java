@@ -16,7 +16,7 @@ public class RottenOranges {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 2) {
+                if (grid[i][j] == 2) { // start from already rooten orange
                     q.offer(new int[] { i, j });
                 } else if (grid[i][j] == 1) {
                     freshCount++;
