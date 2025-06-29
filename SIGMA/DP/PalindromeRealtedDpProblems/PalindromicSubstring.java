@@ -79,6 +79,8 @@ public class PalindromicSubstring {
         // STATE - t[i][j] = true : s[i:j] is a palindrome substring shere i and j are
         // inclusive indicess
         int count = 0;
+
+        //for finding every length
         for (int L = 1; L <= n; L++) {
             for (int i = 0; i + L - 1 < n; i++) {
                 int j = i + L - 1;

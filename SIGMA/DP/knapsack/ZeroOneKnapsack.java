@@ -20,7 +20,6 @@ public class ZeroOneKnapsack {
     }
 
     // using memoization
-    // just for clearity print dp
     
     public static int knapsackMemo(int val[], int wt[], int W, int n, int dp[][]) {
         if (W == 0 || n == 0) {
@@ -44,7 +43,7 @@ public class ZeroOneKnapsack {
         
     }
     
-    // using tabulation
+    // just for clearity print dp
     public static void print(int[][] dp) {
         for (int i = 0; i < dp.length; i++) {
             for (int j = 0; j < dp[0].length; j++) {
@@ -54,6 +53,10 @@ public class ZeroOneKnapsack {
         }
         System.out.println();
     }
+    
+    
+    
+    // using tabulation
     public static int knapsackTab(int val[], int wt[], int W) {
         int n = val.length;
         

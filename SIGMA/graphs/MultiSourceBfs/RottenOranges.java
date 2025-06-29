@@ -52,8 +52,13 @@ public class RottenOranges {
 
             minutes++;
         }
-
-        return freshCount == 0 ? minutes - 1 : -1;
+        /*
+         * 
+         * minutes is incremented one extra time after the last orange is rotten.
+         * 
+         * minutes - 1 adjusts this off-by-one issue.
+         */
+        return freshCount == 0 ? minutes - 1 : -1; // why -1
 
     }
 

@@ -15,6 +15,8 @@ public class EulerPathAndCircuite {
         }
     }
 
+
+    //sare edges ek dusre se connected hone chahiye
     private boolean isConnected(int V, ArrayList<ArrayList<Integer>> adj) {
         boolean[] visited = new boolean[V];
 

@@ -55,6 +55,8 @@ public class FindMinimumTimeTOReachLastRoom {
      * 
      */
 
+     //o()
+
     private static final int[][] directions = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 
     public int minTimeToReach(int[][] moveTime) {
@@ -65,10 +67,10 @@ public class FindMinimumTimeTOReachLastRoom {
             Arrays.fill(row, Integer.MAX_VALUE);
         }
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));//all cells be inserted into it (m*n)
         result[0][0] = 0;
         pq.offer(new int[] { 0, 0, 0 });
-        while (!pq.isEmpty()) {
+        while (!pq.isEmpty()) { // o(m*n * log(m*n))
             int[] curr = pq.poll();
             int currTime = curr[0];
             int i = curr[1];
@@ -81,11 +83,11 @@ public class FindMinimumTimeTOReachLastRoom {
                 int i_ = i + dir[1];
                 if (i_ >= 0 && i_ < m && j_ >= 0 && j_ < n) {
                     int wait = Math.max(moveTime[i_][j_] - currTime, 0);
-                    int arrTime = currTime + wait + 1;
+                    int arrivalTime = currTime + wait + 1;
 
-                    if (result[i_][j_] > arrTime) {
-                        result[i_][j_] = arrTime;
-                        pq.offer(new int[] { arrTime, i_, j_ });
+                    if (result[i_][j_] > arrivalTime) {
+                        result[i_][j_] = arrivalTime;
+                        pq.offer(new int[] { arrivalTime, i_, j_ });
                     }
                 }
             }

@@ -9,7 +9,6 @@ public class CountOccurencessOFAnagrams {
         return true;
 
     }
-
     int search(String pat, String txt) {
         // code here
         int n = txt.length();
@@ -26,14 +25,21 @@ public class CountOccurencessOFAnagrams {
         int ans = 0;
         int k = pat.length();
         while (j < n) {
+            //bhai dekh wo character ayega to minus to karna padega freq se, hain na
             counter[txt.charAt(j) - 'a']--;
+            //check is this correct size of window
             if (j - i + 1 == k) {
                 if (allZero(counter)) {
+                    //if all are zero that means we have all elements in our window
                     ans++;
                 }
+                //i wale character ko minus karde
                 counter[txt.charAt(i) - 'a']++;
-                i++;
+                //aur i++
+                i++; //change the window
             }
+
+            //j to har baar badega
             j++;
         }
 

@@ -25,6 +25,8 @@ Return the total number of provinces.
  * 
  * 
  */
+
+//explaination -> https://leetcode.com/problems/number-of-provinces/solutions/6886257/number-of-provinecess-simple-dfs-by-kenz-21nt/
 public class NumberOfProvinces {
     private int n;
 
