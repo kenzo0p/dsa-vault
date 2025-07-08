@@ -3,29 +3,47 @@ package graphs.Dfs_and_bfs;
 import java.util.*;
 
 public class Dfs {
-
-    public static void helper(ArrayList<ArrayList<Integer>> adj, int node, ArrayList<Integer> list, boolean[] vis) {
-        vis[node] = true;
-        list.add(node);
-        for (int neighbours : adj.get(node)) {
-            if (!vis[neighbours]) {
-                helper(adj, neighbours, list, vis);
+    private int v;
+    private int e;
+    private void dfs(int u , boolean vis[] , List<List<Integer>>adj){
+        vis[u] = true;
+        v++;
+        e += adj.get(u).size();
+        for(int v:adj.get(u)){
+            if(!vis[v]){
+                dfs(v , vis , adj);
             }
         }
     }
+    public int countCompleteComponents(int n, int[][] edges) {
+        List<List<Integer>>adj = new ArrayList<>();
+        for(int i = 0;i<n;i++){
+            adj.add(new ArrayList<>());
+        }
 
-    // Function to return a list containing the DFS traversal of the graph.
-    
-    public static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
-        // Code here
-        ArrayList<Integer> list = new ArrayList<>();
-        boolean vis[] = new boolean[adj.size()];
-        helper(adj, 0, list, vis);
-        return list;
+        for(int edge[]: edges){
+            int u  = edge[0];
+            int v = edge[1];
+
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+
+        boolean vis[] = new boolean[n];
+        int comp = 0;
+        for(int i = 0;i<n;i++){
+            if(!vis[i]){
+                v = 0;
+                e = 0;
+                dfs(i , vis,  adj);
+
+                if(((v*(v-1)/2) )== (e/2)){ //edges and vertices count  its only possible if all vertice have connected edges invbetween them
+                    comp++;
+                }
+            }
+        }
+
+        return comp;
     }
-
-    public static void main(String[]args){
-
-    }
-
 }
+
