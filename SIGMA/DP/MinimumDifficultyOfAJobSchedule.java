@@ -1,10 +1,17 @@
 import java.util.Arrays;
 
 public class MinimumDifficultyOfAJobSchedule {
+    /*
+     * Jobs are dependent
+     * Atleast 1 task evry day
+     * difficulty of a day  = max(all jobs on that day)
+     * find the total minimum difficulty
+     */
+
     private int solve(int jd[], int n, int idx, int d, int t[][]) {
         // base case
         // if there is only 1 day left then you have to do all remainig jobs in that one
-        // day and find the max difficulty of that day and return it
+        // everyday  find the max difficulty of that day and return it
         if (d == 1) {
             int maxD = Integer.MIN_VALUE;
             for (int i = idx; i < n; i++) {
@@ -29,6 +36,8 @@ public class MinimumDifficultyOfAJobSchedule {
          * the find the optimal one among all the result
          */
 
+
+         //why n -d us din tak jayega if d = 2 for first 6-2 = 4 fourth day tak iteration hoga then 5th day tk agli recusrsive all mein and find the max 
         for (int i = idx; i <= n - d; i++) {
             maxD = Math.max(maxD, jd[i]);
 
