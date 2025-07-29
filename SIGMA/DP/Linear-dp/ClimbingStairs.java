@@ -1,5 +1,3 @@
-package package.DP
-
 import java.util.Arrays;
 
 public class ClimbingStairs {
@@ -39,7 +37,6 @@ public class ClimbingStairs {
         if (n == 1 || n == 2) {
             return n;
         }
-        int ways[] = new int[n + 1];
         int a = 1;// i-2
         int b = 2;// i-1
         int c = 3;// i

@@ -28,8 +28,8 @@ public class CountOccurencessOFAnagrams {
             //bhai dekh wo character ayega to minus to karna padega freq se, hain na
             counter[txt.charAt(j) - 'a']--;
             //check is this correct size of window
-            if (j - i + 1 == k) {
-                if (allZero(counter)) {
+            if (j - i + 1 == k) { //only valid for k length
+                if (allZero(counter)) { 
                     //if all are zero that means we have all elements in our window
                     ans++;
                 }
