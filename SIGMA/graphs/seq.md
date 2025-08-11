@@ -36,7 +36,7 @@ monday again repeat in reverse seq
     - minimum spanning tree (gfg)
     - minimum cost to connect all points
 
-# Stronggly connected components    WEDNESDAY
+# Strongly connected components    WEDNESDAY
     ## Kosarajus algo (gfg soln)
 
 # Euler path and circuit Tuesday

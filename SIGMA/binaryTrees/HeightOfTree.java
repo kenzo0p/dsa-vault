@@ -189,7 +189,7 @@ public class HeightOfTree {
             return true;
         }
 
-        // else -> false -> and remove the last elem because uska path usase hokar nahi jata uska path dure kahi se jata hain yato right or left ex we go to find 5 its in right but we go to left we got 4 add in path then again right and left got null then there is no 5 in path remove 4 and return and go to the right 
+        // else -> false -> and remove the last elem because uska path usase hokar nahi jata uska path dusre kahi se jata hain yato right or left ex we go to find 5 its in right but we go to left we got 4 add in path then again right and left got null then there is no 5 in path remove 4 and return and go to the right 
         path.remove(path.size()-1);
         return false;
     }
