@@ -75,7 +75,7 @@ public class BellmanFords {
         int INF = (int) Math.pow(10, 8);
         Arrays.fill(result, INF);
         result[src] = 0;
-        for (int count = 1; count <= V - 1; count++) {
+        for (int count = 1; count <= V - 1; count++) { // passes
 
             for (int edge[] : edges) {
                 int u = edge[0];
