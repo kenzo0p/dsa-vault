@@ -111,8 +111,8 @@ public class CycleDetactionsUndirectedGraph {
     // using bfs
 
     private static class Pair {
-        static private int node;
-        static private int parent;
+         private int node;
+         private int parent;
 
         Pair(int node, int parent) {
             this.node = node;

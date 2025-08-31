@@ -4,7 +4,7 @@
 - Topologocal sort using dfs (pehele mere bache fir mein)
 - Topological sort using bfs kahns algorithm (indeg)
 - cycle detection usig bfs directed graph
-- Number if provincess
+- Number of provincess
 - couse schedule I , II
 - Is Graph bipartite
 

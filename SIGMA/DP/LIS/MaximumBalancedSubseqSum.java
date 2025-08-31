@@ -106,6 +106,7 @@ public class MaximumBalancedSubseqSum {
     // go on leetcode dry run 4,8,5, 8 -> 4 , 7 , 3, 5
     // Approach-3 (Using Optimal LIS - Similar to Patience Sorting) - Accepted
     // Time : O(nlogn)
+    //TODO : Do it Important in Dp LIS
     public long maxBalancedSubsequenceSum(int[] nums) {
         int n = nums.length;
         int[] arr = new int[n];
