@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class DominoAndTrominoTiling {
 
-    // TODO : Do it again leetcode 790
+    // TODO : Google Do it again leetcode 790
 
     // using rec and memo
 
@@ -10,7 +10,7 @@ public class DominoAndTrominoTiling {
     private final int M = 1_000_000_007;
 
     private int solve(int n) {
-        if (n == 1 || n == 2) {
+        if (n == 1 || n == 2) { 
             return n;
         }
         if (t[n] != -1) {
