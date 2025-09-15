@@ -9,7 +9,7 @@ public class CountTheNumberOfHousesAtACertainDistance {
 
         // why floyd warshall kar ke node ka us node se distance nikalna hain isliye we
         // can solve it using bfs also
-        // n^3 floyd warshall but here constrain are small so we can solve itusing floyd
+        // n^3 floyd warshall but here constrain are small so we can solve it using floyd
         // warshall
         public int[] countOfPairs(int n, int x, int y) {
             int inf = (int) 1e9;

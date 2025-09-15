@@ -1,58 +1,61 @@
 package SIGMA.DP.Dp_on_grids;
-
+import java.util.*;
 public class MaximumNoNegativeProductInAMatrix {
-    int m, n;
-    final int MOD = 1000000007;
+    private static final int MOD = (int)1e9 + 7;
+    private long[][][] memo;  // memo[i][j][0] = min, memo[i][j][1] = max
+    private int m, n;
 
-    // Memoization table for storing (max, min) pairs
-    Pair<Long, Long>[][] t;
-
-    public Pair<Long, Long> solve(int i, int j, int[][] grid) {
-        // Base case: If we're at the bottom-right corner, return the value
+    private long[] solve(int i, int j, int[][] grid) {
         if (i == m - 1 && j == n - 1) {
-            return new Pair<>((long) grid[i][j], (long) grid[i][j]);
+            long val = grid[i][j];
+            return new long[]{val, val}; // min = max = cell value
         }
 
-        long maxVal = Long.MIN_VALUE;
+        if (memo[i][j][0] != Long.MAX_VALUE) {
+            return new long[]{memo[i][j][0], memo[i][j][1]};
+        }
+
         long minVal = Long.MAX_VALUE;
+        long maxVal = Long.MIN_VALUE;
 
-        // If already computed, return the memoized result
-        if (t[i][j] != null) {
-            return t[i][j];
-        }
-
-        // Move down
+        // move down
         if (i + 1 < m) {
-            Pair<Long, Long> down = solve(i + 1, j, grid);
-            maxVal = Math.max(maxVal, Math.max(grid[i][j] * down.getKey(), grid[i][j] * down.getValue()));
-            minVal = Math.min(minVal, Math.min(grid[i][j] * down.getKey(), grid[i][j] * down.getValue()));
+            long[] down = solve(i + 1, j, grid);
+            minVal = Math.min(minVal, grid[i][j] * down[0]);
+            minVal = Math.min(minVal, grid[i][j] * down[1]);
+            maxVal = Math.max(maxVal, grid[i][j] * down[0]);
+            maxVal = Math.max(maxVal, grid[i][j] * down[1]);
         }
 
-        // Move right
+        // move right
         if (j + 1 < n) {
-            Pair<Long, Long> right = solve(i, j + 1, grid);
-            maxVal = Math.max(maxVal, Math.max(grid[i][j] * right.getKey(), grid[i][j] * right.getValue()));
-            minVal = Math.min(minVal, Math.min(grid[i][j] * right.getKey(), grid[i][j] * right.getValue()));
+            long[] right = solve(i, j + 1, grid);
+            minVal = Math.min(minVal, grid[i][j] * right[0]);
+            minVal = Math.min(minVal, grid[i][j] * right[1]);
+            maxVal = Math.max(maxVal, grid[i][j] * right[0]);
+            maxVal = Math.max(maxVal, grid[i][j] * right[1]);
         }
 
-        // Memoize results
-        t[i][j] = new Pair<>(maxVal, minVal);
-
-        return t[i][j];
+        memo[i][j][0] = minVal;
+        memo[i][j][1] = maxVal;
+        return new long[]{minVal, maxVal};
     }
 
     public int maxProductPath(int[][] grid) {
         m = grid.length;
         n = grid[0].length;
+        memo = new long[m][n][2];
 
-        // Initialize the memoization table
-        t = new Pair[m][n];
+        // initialize memo
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                memo[i][j][0] = Long.MAX_VALUE;
+                memo[i][j][1] = Long.MIN_VALUE;
+            }
+        }
 
-        // Get the result from the top-left corner
-        Pair<Long, Long> result = solve(0, 0, grid);
-
-        // If the result is negative, return -1, otherwise return the result modulo MOD
-        return result.getKey() < 0 ? -1 : (int) (result.getKey() % MOD);
+        long[] ans = solve(0, 0, grid);
+        return ans[1] < 0 ? -1 : (int)(ans[1] % MOD);
     }
 
     // Bottom up
