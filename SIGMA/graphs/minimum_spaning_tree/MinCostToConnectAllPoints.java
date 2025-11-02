@@ -19,7 +19,6 @@ public class MinCostToConnectAllPoints {
 
             int dist = curr[0];
             int node = curr[1];
-
             if (inMst[node] == true) {
                 continue;
             }
