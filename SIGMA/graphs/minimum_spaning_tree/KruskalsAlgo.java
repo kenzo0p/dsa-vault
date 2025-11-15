@@ -149,7 +149,7 @@ import kruskalsAlgo.KruskalsAlgo.Edge;
 
         return kruskal(edges);
     }
-}
+
 
 
     public static void main(String[] args) {
