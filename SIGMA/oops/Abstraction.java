@@ -12,11 +12,15 @@ public class Abstraction {
 // hiding all unnessaesary details and showing only the important parts to the
 // user
 abstract class Animal {            
-    String color;
+    private String color;
 
     Animal() {
         color = "Brown";
         System.out.println("Animal constructor called");
+    }
+
+    public void changeColor(String color){
+        this.color = color;
     }
 
     void eat() {
@@ -32,7 +36,7 @@ class Horse extends Animal {
     }
 
     void changeColor() {
-        color = "dark brown";
+        changeColor("dark brown");
 
     }
 
@@ -47,7 +51,7 @@ class Chicken extends Animal {
     }
 
     void changeColor() {
-        color = "yellow";
+        changeColor("Yellow");
     }
 
     void walk() {
@@ -59,4 +63,6 @@ class Mustang extends Horse {
     Mustang() {
         System.out.println("Mustang constructor called");
     }
+
+
 }
